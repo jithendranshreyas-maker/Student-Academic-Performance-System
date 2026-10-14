@@ -151,20 +151,13 @@ st.markdown(
     <style>
 
     header[data-testid="stHeader"] {
-    display:none;
     }
 
     .top-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 65px;
-        background-color: #0e1117;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        padding-left: 290px; /* Keep the title clear of the fixed left sidebar */
+        position: relative;
+        width: 100%;
+        min-height: 65px;
+        z-index: 1;
     }
 
     .top-nav-title {
