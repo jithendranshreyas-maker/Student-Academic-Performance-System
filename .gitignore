@@ -1,0 +1,26 @@
+# macOS and editor files
+.DS_Store
+.vscode/
+
+# Python temporary files
+__pycache__/
+*.py[cod]
+tempCodeRunnerFile.py
+tempCodeRunnerFile.python
+
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Backups and temporary exports
+BACKUP/
+app2_backup.py
+Project_2_backup.sql
+semester_results_backup_*.csv
+academic_records_before_import.csv
+backlog_history_demo_download.csv
+
+# Local database and logs
+*.log

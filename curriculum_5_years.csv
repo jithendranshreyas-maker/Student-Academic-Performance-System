@@ -1,0 +1,1601 @@
+Branch,Academic_Year,Semester,Subject_Code,Subject_Name,Credits,Maximum_Marks
+CS,2021,1,SUB101,Programming Fundamentals,4,100
+CS,2021,1,SUB102,Engineering Mathematics,4,100
+CS,2021,1,SUB103,Engineering Physics,3,100
+CS,2021,1,SUB104,Digital Fundamentals,3,100
+CS,2021,2,SUB105,Communication Skills,2,100
+CS,2021,2,SUB201,Data Structures,4,100
+CS,2021,2,SUB202,Database Systems,4,100
+CS,2021,2,SUB203,Computer Networks,4,100
+CS,2021,3,SUB204,Operating Systems,4,100
+CS,2021,3,SUB205,Discrete Mathematics,3,100
+CS,2021,3,SUB301,Software Engineering,4,100
+CS,2021,3,SUB302,Computer Architecture,4,100
+CS,2021,4,SUB303,Web Technologies,3,100
+CS,2021,4,SUB304,Probability and Statistics,3,100
+CS,2021,4,SUB305,Technical Writing,2,100
+CS,2021,4,SUB401,Machine Learning,4,100
+CS,2021,5,SUB402,Distributed Systems,4,100
+CS,2021,5,SUB403,Information Security,3,100
+CS,2021,5,SUB404,Cloud Computing,3,100
+CS,2021,5,SUB405,Management Fundamentals,2,100
+CS,2021,6,SUB501,Deep Learning,4,100
+CS,2021,6,SUB502,Big Data Analytics,4,100
+CS,2021,6,SUB503,Mobile Computing,3,100
+CS,2021,6,SUB504,Advanced Databases,3,100
+CS,2021,7,SUB505,Entrepreneurship,2,100
+CS,2021,7,SUB601,Artificial Intelligence,4,100
+CS,2021,7,SUB602,Advanced Algorithms,4,100
+CS,2021,7,SUB603,Project Engineering,3,100
+CS,2021,8,SUB604,Professional Practice,3,100
+CS,2021,8,SUB605,Elective I,3,100
+CS,2021,8,SUB701,Major Project,8,100
+CS,2021,8,SUB702,Seminar,2,100
+IT,2021,1,SUB101,Programming Fundamentals,4,100
+IT,2021,1,SUB102,Engineering Mathematics,4,100
+IT,2021,1,SUB103,Engineering Physics,3,100
+IT,2021,1,SUB104,Digital Fundamentals,3,100
+IT,2021,2,SUB105,Communication Skills,2,100
+IT,2021,2,SUB201,Data Structures,4,100
+IT,2021,2,SUB202,Database Systems,4,100
+IT,2021,2,SUB203,Computer Networks,4,100
+IT,2021,3,SUB204,Operating Systems,4,100
+IT,2021,3,SUB205,Discrete Mathematics,3,100
+IT,2021,3,SUB301,Software Engineering,4,100
+IT,2021,3,SUB302,Computer Architecture,4,100
+IT,2021,4,SUB303,Web Technologies,3,100
+IT,2021,4,SUB304,Probability and Statistics,3,100
+IT,2021,4,SUB305,Technical Writing,2,100
+IT,2021,4,SUB401,Machine Learning,4,100
+IT,2021,5,SUB402,Distributed Systems,4,100
+IT,2021,5,SUB403,Information Security,3,100
+IT,2021,5,SUB404,Cloud Computing,3,100
+IT,2021,5,SUB405,Management Fundamentals,2,100
+IT,2021,6,SUB501,Deep Learning,4,100
+IT,2021,6,SUB502,Big Data Analytics,4,100
+IT,2021,6,SUB503,Mobile Computing,3,100
+IT,2021,6,SUB504,Advanced Databases,3,100
+IT,2021,7,SUB505,Entrepreneurship,2,100
+IT,2021,7,SUB601,Artificial Intelligence,4,100
+IT,2021,7,SUB602,Advanced Algorithms,4,100
+IT,2021,7,SUB603,Project Engineering,3,100
+IT,2021,8,SUB604,Professional Practice,3,100
+IT,2021,8,SUB605,Elective I,3,100
+IT,2021,8,SUB701,Major Project,8,100
+IT,2021,8,SUB702,Seminar,2,100
+AI,2021,1,SUB101,Programming Fundamentals,4,100
+AI,2021,1,SUB102,Engineering Mathematics,4,100
+AI,2021,1,SUB103,Engineering Physics,3,100
+AI,2021,1,SUB104,Digital Fundamentals,3,100
+AI,2021,2,SUB105,Communication Skills,2,100
+AI,2021,2,SUB201,Data Structures,4,100
+AI,2021,2,SUB202,Database Systems,4,100
+AI,2021,2,SUB203,Computer Networks,4,100
+AI,2021,3,SUB204,Operating Systems,4,100
+AI,2021,3,SUB205,Discrete Mathematics,3,100
+AI,2021,3,SUB301,Software Engineering,4,100
+AI,2021,3,SUB302,Computer Architecture,4,100
+AI,2021,4,SUB303,Web Technologies,3,100
+AI,2021,4,SUB304,Probability and Statistics,3,100
+AI,2021,4,SUB305,Technical Writing,2,100
+AI,2021,4,SUB401,Machine Learning,4,100
+AI,2021,5,SUB402,Distributed Systems,4,100
+AI,2021,5,SUB403,Information Security,3,100
+AI,2021,5,SUB404,Cloud Computing,3,100
+AI,2021,5,SUB405,Management Fundamentals,2,100
+AI,2021,6,SUB501,Deep Learning,4,100
+AI,2021,6,SUB502,Big Data Analytics,4,100
+AI,2021,6,SUB503,Mobile Computing,3,100
+AI,2021,6,SUB504,Advanced Databases,3,100
+AI,2021,7,SUB505,Entrepreneurship,2,100
+AI,2021,7,SUB601,Artificial Intelligence,4,100
+AI,2021,7,SUB602,Advanced Algorithms,4,100
+AI,2021,7,SUB603,Project Engineering,3,100
+AI,2021,8,SUB604,Professional Practice,3,100
+AI,2021,8,SUB605,Elective I,3,100
+AI,2021,8,SUB701,Major Project,8,100
+AI,2021,8,SUB702,Seminar,2,100
+Mech,2021,1,SUB101,Programming Fundamentals,4,100
+Mech,2021,1,SUB102,Engineering Mathematics,4,100
+Mech,2021,1,SUB103,Engineering Physics,3,100
+Mech,2021,1,SUB104,Digital Fundamentals,3,100
+Mech,2021,2,SUB105,Communication Skills,2,100
+Mech,2021,2,SUB201,Data Structures,4,100
+Mech,2021,2,SUB202,Database Systems,4,100
+Mech,2021,2,SUB203,Computer Networks,4,100
+Mech,2021,3,SUB204,Operating Systems,4,100
+Mech,2021,3,SUB205,Discrete Mathematics,3,100
+Mech,2021,3,SUB301,Software Engineering,4,100
+Mech,2021,3,SUB302,Computer Architecture,4,100
+Mech,2021,4,SUB303,Web Technologies,3,100
+Mech,2021,4,SUB304,Probability and Statistics,3,100
+Mech,2021,4,SUB305,Technical Writing,2,100
+Mech,2021,4,SUB401,Machine Learning,4,100
+Mech,2021,5,SUB402,Distributed Systems,4,100
+Mech,2021,5,SUB403,Information Security,3,100
+Mech,2021,5,SUB404,Cloud Computing,3,100
+Mech,2021,5,SUB405,Management Fundamentals,2,100
+Mech,2021,6,SUB501,Deep Learning,4,100
+Mech,2021,6,SUB502,Big Data Analytics,4,100
+Mech,2021,6,SUB503,Mobile Computing,3,100
+Mech,2021,6,SUB504,Advanced Databases,3,100
+Mech,2021,7,SUB505,Entrepreneurship,2,100
+Mech,2021,7,SUB601,Artificial Intelligence,4,100
+Mech,2021,7,SUB602,Advanced Algorithms,4,100
+Mech,2021,7,SUB603,Project Engineering,3,100
+Mech,2021,8,SUB604,Professional Practice,3,100
+Mech,2021,8,SUB605,Elective I,3,100
+Mech,2021,8,SUB701,Major Project,8,100
+Mech,2021,8,SUB702,Seminar,2,100
+Civil,2021,1,SUB101,Programming Fundamentals,4,100
+Civil,2021,1,SUB102,Engineering Mathematics,4,100
+Civil,2021,1,SUB103,Engineering Physics,3,100
+Civil,2021,1,SUB104,Digital Fundamentals,3,100
+Civil,2021,2,SUB105,Communication Skills,2,100
+Civil,2021,2,SUB201,Data Structures,4,100
+Civil,2021,2,SUB202,Database Systems,4,100
+Civil,2021,2,SUB203,Computer Networks,4,100
+Civil,2021,3,SUB204,Operating Systems,4,100
+Civil,2021,3,SUB205,Discrete Mathematics,3,100
+Civil,2021,3,SUB301,Software Engineering,4,100
+Civil,2021,3,SUB302,Computer Architecture,4,100
+Civil,2021,4,SUB303,Web Technologies,3,100
+Civil,2021,4,SUB304,Probability and Statistics,3,100
+Civil,2021,4,SUB305,Technical Writing,2,100
+Civil,2021,4,SUB401,Machine Learning,4,100
+Civil,2021,5,SUB402,Distributed Systems,4,100
+Civil,2021,5,SUB403,Information Security,3,100
+Civil,2021,5,SUB404,Cloud Computing,3,100
+Civil,2021,5,SUB405,Management Fundamentals,2,100
+Civil,2021,6,SUB501,Deep Learning,4,100
+Civil,2021,6,SUB502,Big Data Analytics,4,100
+Civil,2021,6,SUB503,Mobile Computing,3,100
+Civil,2021,6,SUB504,Advanced Databases,3,100
+Civil,2021,7,SUB505,Entrepreneurship,2,100
+Civil,2021,7,SUB601,Artificial Intelligence,4,100
+Civil,2021,7,SUB602,Advanced Algorithms,4,100
+Civil,2021,7,SUB603,Project Engineering,3,100
+Civil,2021,8,SUB604,Professional Practice,3,100
+Civil,2021,8,SUB605,Elective I,3,100
+Civil,2021,8,SUB701,Major Project,8,100
+Civil,2021,8,SUB702,Seminar,2,100
+Chem,2021,1,SUB101,Programming Fundamentals,4,100
+Chem,2021,1,SUB102,Engineering Mathematics,4,100
+Chem,2021,1,SUB103,Engineering Physics,3,100
+Chem,2021,1,SUB104,Digital Fundamentals,3,100
+Chem,2021,2,SUB105,Communication Skills,2,100
+Chem,2021,2,SUB201,Data Structures,4,100
+Chem,2021,2,SUB202,Database Systems,4,100
+Chem,2021,2,SUB203,Computer Networks,4,100
+Chem,2021,3,SUB204,Operating Systems,4,100
+Chem,2021,3,SUB205,Discrete Mathematics,3,100
+Chem,2021,3,SUB301,Software Engineering,4,100
+Chem,2021,3,SUB302,Computer Architecture,4,100
+Chem,2021,4,SUB303,Web Technologies,3,100
+Chem,2021,4,SUB304,Probability and Statistics,3,100
+Chem,2021,4,SUB305,Technical Writing,2,100
+Chem,2021,4,SUB401,Machine Learning,4,100
+Chem,2021,5,SUB402,Distributed Systems,4,100
+Chem,2021,5,SUB403,Information Security,3,100
+Chem,2021,5,SUB404,Cloud Computing,3,100
+Chem,2021,5,SUB405,Management Fundamentals,2,100
+Chem,2021,6,SUB501,Deep Learning,4,100
+Chem,2021,6,SUB502,Big Data Analytics,4,100
+Chem,2021,6,SUB503,Mobile Computing,3,100
+Chem,2021,6,SUB504,Advanced Databases,3,100
+Chem,2021,7,SUB505,Entrepreneurship,2,100
+Chem,2021,7,SUB601,Artificial Intelligence,4,100
+Chem,2021,7,SUB602,Advanced Algorithms,4,100
+Chem,2021,7,SUB603,Project Engineering,3,100
+Chem,2021,8,SUB604,Professional Practice,3,100
+Chem,2021,8,SUB605,Elective I,3,100
+Chem,2021,8,SUB701,Major Project,8,100
+Chem,2021,8,SUB702,Seminar,2,100
+Metallurgy,2021,1,SUB101,Programming Fundamentals,4,100
+Metallurgy,2021,1,SUB102,Engineering Mathematics,4,100
+Metallurgy,2021,1,SUB103,Engineering Physics,3,100
+Metallurgy,2021,1,SUB104,Digital Fundamentals,3,100
+Metallurgy,2021,2,SUB105,Communication Skills,2,100
+Metallurgy,2021,2,SUB201,Data Structures,4,100
+Metallurgy,2021,2,SUB202,Database Systems,4,100
+Metallurgy,2021,2,SUB203,Computer Networks,4,100
+Metallurgy,2021,3,SUB204,Operating Systems,4,100
+Metallurgy,2021,3,SUB205,Discrete Mathematics,3,100
+Metallurgy,2021,3,SUB301,Software Engineering,4,100
+Metallurgy,2021,3,SUB302,Computer Architecture,4,100
+Metallurgy,2021,4,SUB303,Web Technologies,3,100
+Metallurgy,2021,4,SUB304,Probability and Statistics,3,100
+Metallurgy,2021,4,SUB305,Technical Writing,2,100
+Metallurgy,2021,4,SUB401,Machine Learning,4,100
+Metallurgy,2021,5,SUB402,Distributed Systems,4,100
+Metallurgy,2021,5,SUB403,Information Security,3,100
+Metallurgy,2021,5,SUB404,Cloud Computing,3,100
+Metallurgy,2021,5,SUB405,Management Fundamentals,2,100
+Metallurgy,2021,6,SUB501,Deep Learning,4,100
+Metallurgy,2021,6,SUB502,Big Data Analytics,4,100
+Metallurgy,2021,6,SUB503,Mobile Computing,3,100
+Metallurgy,2021,6,SUB504,Advanced Databases,3,100
+Metallurgy,2021,7,SUB505,Entrepreneurship,2,100
+Metallurgy,2021,7,SUB601,Artificial Intelligence,4,100
+Metallurgy,2021,7,SUB602,Advanced Algorithms,4,100
+Metallurgy,2021,7,SUB603,Project Engineering,3,100
+Metallurgy,2021,8,SUB604,Professional Practice,3,100
+Metallurgy,2021,8,SUB605,Elective I,3,100
+Metallurgy,2021,8,SUB701,Major Project,8,100
+Metallurgy,2021,8,SUB702,Seminar,2,100
+ECE,2021,1,SUB101,Programming Fundamentals,4,100
+ECE,2021,1,SUB102,Engineering Mathematics,4,100
+ECE,2021,1,SUB103,Engineering Physics,3,100
+ECE,2021,1,SUB104,Digital Fundamentals,3,100
+ECE,2021,2,SUB105,Communication Skills,2,100
+ECE,2021,2,SUB201,Data Structures,4,100
+ECE,2021,2,SUB202,Database Systems,4,100
+ECE,2021,2,SUB203,Computer Networks,4,100
+ECE,2021,3,SUB204,Operating Systems,4,100
+ECE,2021,3,SUB205,Discrete Mathematics,3,100
+ECE,2021,3,SUB301,Software Engineering,4,100
+ECE,2021,3,SUB302,Computer Architecture,4,100
+ECE,2021,4,SUB303,Web Technologies,3,100
+ECE,2021,4,SUB304,Probability and Statistics,3,100
+ECE,2021,4,SUB305,Technical Writing,2,100
+ECE,2021,4,SUB401,Machine Learning,4,100
+ECE,2021,5,SUB402,Distributed Systems,4,100
+ECE,2021,5,SUB403,Information Security,3,100
+ECE,2021,5,SUB404,Cloud Computing,3,100
+ECE,2021,5,SUB405,Management Fundamentals,2,100
+ECE,2021,6,SUB501,Deep Learning,4,100
+ECE,2021,6,SUB502,Big Data Analytics,4,100
+ECE,2021,6,SUB503,Mobile Computing,3,100
+ECE,2021,6,SUB504,Advanced Databases,3,100
+ECE,2021,7,SUB505,Entrepreneurship,2,100
+ECE,2021,7,SUB601,Artificial Intelligence,4,100
+ECE,2021,7,SUB602,Advanced Algorithms,4,100
+ECE,2021,7,SUB603,Project Engineering,3,100
+ECE,2021,8,SUB604,Professional Practice,3,100
+ECE,2021,8,SUB605,Elective I,3,100
+ECE,2021,8,SUB701,Major Project,8,100
+ECE,2021,8,SUB702,Seminar,2,100
+EEE,2021,1,SUB101,Programming Fundamentals,4,100
+EEE,2021,1,SUB102,Engineering Mathematics,4,100
+EEE,2021,1,SUB103,Engineering Physics,3,100
+EEE,2021,1,SUB104,Digital Fundamentals,3,100
+EEE,2021,2,SUB105,Communication Skills,2,100
+EEE,2021,2,SUB201,Data Structures,4,100
+EEE,2021,2,SUB202,Database Systems,4,100
+EEE,2021,2,SUB203,Computer Networks,4,100
+EEE,2021,3,SUB204,Operating Systems,4,100
+EEE,2021,3,SUB205,Discrete Mathematics,3,100
+EEE,2021,3,SUB301,Software Engineering,4,100
+EEE,2021,3,SUB302,Computer Architecture,4,100
+EEE,2021,4,SUB303,Web Technologies,3,100
+EEE,2021,4,SUB304,Probability and Statistics,3,100
+EEE,2021,4,SUB305,Technical Writing,2,100
+EEE,2021,4,SUB401,Machine Learning,4,100
+EEE,2021,5,SUB402,Distributed Systems,4,100
+EEE,2021,5,SUB403,Information Security,3,100
+EEE,2021,5,SUB404,Cloud Computing,3,100
+EEE,2021,5,SUB405,Management Fundamentals,2,100
+EEE,2021,6,SUB501,Deep Learning,4,100
+EEE,2021,6,SUB502,Big Data Analytics,4,100
+EEE,2021,6,SUB503,Mobile Computing,3,100
+EEE,2021,6,SUB504,Advanced Databases,3,100
+EEE,2021,7,SUB505,Entrepreneurship,2,100
+EEE,2021,7,SUB601,Artificial Intelligence,4,100
+EEE,2021,7,SUB602,Advanced Algorithms,4,100
+EEE,2021,7,SUB603,Project Engineering,3,100
+EEE,2021,8,SUB604,Professional Practice,3,100
+EEE,2021,8,SUB605,Elective I,3,100
+EEE,2021,8,SUB701,Major Project,8,100
+EEE,2021,8,SUB702,Seminar,2,100
+CDS,2021,1,SUB101,Programming Fundamentals,4,100
+CDS,2021,1,SUB102,Engineering Mathematics,4,100
+CDS,2021,1,SUB103,Engineering Physics,3,100
+CDS,2021,1,SUB104,Digital Fundamentals,3,100
+CDS,2021,2,SUB105,Communication Skills,2,100
+CDS,2021,2,SUB201,Data Structures,4,100
+CDS,2021,2,SUB202,Database Systems,4,100
+CDS,2021,2,SUB203,Computer Networks,4,100
+CDS,2021,3,SUB204,Operating Systems,4,100
+CDS,2021,3,SUB205,Discrete Mathematics,3,100
+CDS,2021,3,SUB301,Software Engineering,4,100
+CDS,2021,3,SUB302,Computer Architecture,4,100
+CDS,2021,4,SUB303,Web Technologies,3,100
+CDS,2021,4,SUB304,Probability and Statistics,3,100
+CDS,2021,4,SUB305,Technical Writing,2,100
+CDS,2021,4,SUB401,Machine Learning,4,100
+CDS,2021,5,SUB402,Distributed Systems,4,100
+CDS,2021,5,SUB403,Information Security,3,100
+CDS,2021,5,SUB404,Cloud Computing,3,100
+CDS,2021,5,SUB405,Management Fundamentals,2,100
+CDS,2021,6,SUB501,Deep Learning,4,100
+CDS,2021,6,SUB502,Big Data Analytics,4,100
+CDS,2021,6,SUB503,Mobile Computing,3,100
+CDS,2021,6,SUB504,Advanced Databases,3,100
+CDS,2021,7,SUB505,Entrepreneurship,2,100
+CDS,2021,7,SUB601,Artificial Intelligence,4,100
+CDS,2021,7,SUB602,Advanced Algorithms,4,100
+CDS,2021,7,SUB603,Project Engineering,3,100
+CDS,2021,8,SUB604,Professional Practice,3,100
+CDS,2021,8,SUB605,Elective I,3,100
+CDS,2021,8,SUB701,Major Project,8,100
+CDS,2021,8,SUB702,Seminar,2,100
+CS,2022,1,SUB101,Programming Fundamentals,4,100
+CS,2022,1,SUB102,Engineering Mathematics,4,100
+CS,2022,1,SUB103,Engineering Physics,3,100
+CS,2022,1,SUB104,Digital Fundamentals,3,100
+CS,2022,2,SUB105,Communication Skills,2,100
+CS,2022,2,SUB201,Data Structures,4,100
+CS,2022,2,SUB202,Database Systems,4,100
+CS,2022,2,SUB203,Computer Networks,4,100
+CS,2022,3,SUB204,Operating Systems,4,100
+CS,2022,3,SUB205,Discrete Mathematics,3,100
+CS,2022,3,SUB301,Software Engineering,4,100
+CS,2022,3,SUB302,Computer Architecture,4,100
+CS,2022,4,SUB303,Web Technologies,3,100
+CS,2022,4,SUB304,Probability and Statistics,3,100
+CS,2022,4,SUB305,Technical Writing,2,100
+CS,2022,4,SUB401,Machine Learning,4,100
+CS,2022,5,SUB402,Distributed Systems,4,100
+CS,2022,5,SUB403,Information Security,3,100
+CS,2022,5,SUB404,Cloud Computing,3,100
+CS,2022,5,SUB405,Management Fundamentals,2,100
+CS,2022,6,SUB501,Deep Learning,4,100
+CS,2022,6,SUB502,Big Data Analytics,4,100
+CS,2022,6,SUB503,Mobile Computing,3,100
+CS,2022,6,SUB504,Advanced Databases,3,100
+CS,2022,7,SUB505,Entrepreneurship,2,100
+CS,2022,7,SUB601,Artificial Intelligence,4,100
+CS,2022,7,SUB602,Advanced Algorithms,4,100
+CS,2022,7,SUB603,Project Engineering,3,100
+CS,2022,8,SUB604,Professional Practice,3,100
+CS,2022,8,SUB605,Elective I,3,100
+CS,2022,8,SUB701,Major Project,8,100
+CS,2022,8,SUB702,Seminar,2,100
+IT,2022,1,SUB101,Programming Fundamentals,4,100
+IT,2022,1,SUB102,Engineering Mathematics,4,100
+IT,2022,1,SUB103,Engineering Physics,3,100
+IT,2022,1,SUB104,Digital Fundamentals,3,100
+IT,2022,2,SUB105,Communication Skills,2,100
+IT,2022,2,SUB201,Data Structures,4,100
+IT,2022,2,SUB202,Database Systems,4,100
+IT,2022,2,SUB203,Computer Networks,4,100
+IT,2022,3,SUB204,Operating Systems,4,100
+IT,2022,3,SUB205,Discrete Mathematics,3,100
+IT,2022,3,SUB301,Software Engineering,4,100
+IT,2022,3,SUB302,Computer Architecture,4,100
+IT,2022,4,SUB303,Web Technologies,3,100
+IT,2022,4,SUB304,Probability and Statistics,3,100
+IT,2022,4,SUB305,Technical Writing,2,100
+IT,2022,4,SUB401,Machine Learning,4,100
+IT,2022,5,SUB402,Distributed Systems,4,100
+IT,2022,5,SUB403,Information Security,3,100
+IT,2022,5,SUB404,Cloud Computing,3,100
+IT,2022,5,SUB405,Management Fundamentals,2,100
+IT,2022,6,SUB501,Deep Learning,4,100
+IT,2022,6,SUB502,Big Data Analytics,4,100
+IT,2022,6,SUB503,Mobile Computing,3,100
+IT,2022,6,SUB504,Advanced Databases,3,100
+IT,2022,7,SUB505,Entrepreneurship,2,100
+IT,2022,7,SUB601,Artificial Intelligence,4,100
+IT,2022,7,SUB602,Advanced Algorithms,4,100
+IT,2022,7,SUB603,Project Engineering,3,100
+IT,2022,8,SUB604,Professional Practice,3,100
+IT,2022,8,SUB605,Elective I,3,100
+IT,2022,8,SUB701,Major Project,8,100
+IT,2022,8,SUB702,Seminar,2,100
+AI,2022,1,SUB101,Programming Fundamentals,4,100
+AI,2022,1,SUB102,Engineering Mathematics,4,100
+AI,2022,1,SUB103,Engineering Physics,3,100
+AI,2022,1,SUB104,Digital Fundamentals,3,100
+AI,2022,2,SUB105,Communication Skills,2,100
+AI,2022,2,SUB201,Data Structures,4,100
+AI,2022,2,SUB202,Database Systems,4,100
+AI,2022,2,SUB203,Computer Networks,4,100
+AI,2022,3,SUB204,Operating Systems,4,100
+AI,2022,3,SUB205,Discrete Mathematics,3,100
+AI,2022,3,SUB301,Software Engineering,4,100
+AI,2022,3,SUB302,Computer Architecture,4,100
+AI,2022,4,SUB303,Web Technologies,3,100
+AI,2022,4,SUB304,Probability and Statistics,3,100
+AI,2022,4,SUB305,Technical Writing,2,100
+AI,2022,4,SUB401,Machine Learning,4,100
+AI,2022,5,SUB402,Distributed Systems,4,100
+AI,2022,5,SUB403,Information Security,3,100
+AI,2022,5,SUB404,Cloud Computing,3,100
+AI,2022,5,SUB405,Management Fundamentals,2,100
+AI,2022,6,SUB501,Deep Learning,4,100
+AI,2022,6,SUB502,Big Data Analytics,4,100
+AI,2022,6,SUB503,Mobile Computing,3,100
+AI,2022,6,SUB504,Advanced Databases,3,100
+AI,2022,7,SUB505,Entrepreneurship,2,100
+AI,2022,7,SUB601,Artificial Intelligence,4,100
+AI,2022,7,SUB602,Advanced Algorithms,4,100
+AI,2022,7,SUB603,Project Engineering,3,100
+AI,2022,8,SUB604,Professional Practice,3,100
+AI,2022,8,SUB605,Elective I,3,100
+AI,2022,8,SUB701,Major Project,8,100
+AI,2022,8,SUB702,Seminar,2,100
+Mech,2022,1,SUB101,Programming Fundamentals,4,100
+Mech,2022,1,SUB102,Engineering Mathematics,4,100
+Mech,2022,1,SUB103,Engineering Physics,3,100
+Mech,2022,1,SUB104,Digital Fundamentals,3,100
+Mech,2022,2,SUB105,Communication Skills,2,100
+Mech,2022,2,SUB201,Data Structures,4,100
+Mech,2022,2,SUB202,Database Systems,4,100
+Mech,2022,2,SUB203,Computer Networks,4,100
+Mech,2022,3,SUB204,Operating Systems,4,100
+Mech,2022,3,SUB205,Discrete Mathematics,3,100
+Mech,2022,3,SUB301,Software Engineering,4,100
+Mech,2022,3,SUB302,Computer Architecture,4,100
+Mech,2022,4,SUB303,Web Technologies,3,100
+Mech,2022,4,SUB304,Probability and Statistics,3,100
+Mech,2022,4,SUB305,Technical Writing,2,100
+Mech,2022,4,SUB401,Machine Learning,4,100
+Mech,2022,5,SUB402,Distributed Systems,4,100
+Mech,2022,5,SUB403,Information Security,3,100
+Mech,2022,5,SUB404,Cloud Computing,3,100
+Mech,2022,5,SUB405,Management Fundamentals,2,100
+Mech,2022,6,SUB501,Deep Learning,4,100
+Mech,2022,6,SUB502,Big Data Analytics,4,100
+Mech,2022,6,SUB503,Mobile Computing,3,100
+Mech,2022,6,SUB504,Advanced Databases,3,100
+Mech,2022,7,SUB505,Entrepreneurship,2,100
+Mech,2022,7,SUB601,Artificial Intelligence,4,100
+Mech,2022,7,SUB602,Advanced Algorithms,4,100
+Mech,2022,7,SUB603,Project Engineering,3,100
+Mech,2022,8,SUB604,Professional Practice,3,100
+Mech,2022,8,SUB605,Elective I,3,100
+Mech,2022,8,SUB701,Major Project,8,100
+Mech,2022,8,SUB702,Seminar,2,100
+Civil,2022,1,SUB101,Programming Fundamentals,4,100
+Civil,2022,1,SUB102,Engineering Mathematics,4,100
+Civil,2022,1,SUB103,Engineering Physics,3,100
+Civil,2022,1,SUB104,Digital Fundamentals,3,100
+Civil,2022,2,SUB105,Communication Skills,2,100
+Civil,2022,2,SUB201,Data Structures,4,100
+Civil,2022,2,SUB202,Database Systems,4,100
+Civil,2022,2,SUB203,Computer Networks,4,100
+Civil,2022,3,SUB204,Operating Systems,4,100
+Civil,2022,3,SUB205,Discrete Mathematics,3,100
+Civil,2022,3,SUB301,Software Engineering,4,100
+Civil,2022,3,SUB302,Computer Architecture,4,100
+Civil,2022,4,SUB303,Web Technologies,3,100
+Civil,2022,4,SUB304,Probability and Statistics,3,100
+Civil,2022,4,SUB305,Technical Writing,2,100
+Civil,2022,4,SUB401,Machine Learning,4,100
+Civil,2022,5,SUB402,Distributed Systems,4,100
+Civil,2022,5,SUB403,Information Security,3,100
+Civil,2022,5,SUB404,Cloud Computing,3,100
+Civil,2022,5,SUB405,Management Fundamentals,2,100
+Civil,2022,6,SUB501,Deep Learning,4,100
+Civil,2022,6,SUB502,Big Data Analytics,4,100
+Civil,2022,6,SUB503,Mobile Computing,3,100
+Civil,2022,6,SUB504,Advanced Databases,3,100
+Civil,2022,7,SUB505,Entrepreneurship,2,100
+Civil,2022,7,SUB601,Artificial Intelligence,4,100
+Civil,2022,7,SUB602,Advanced Algorithms,4,100
+Civil,2022,7,SUB603,Project Engineering,3,100
+Civil,2022,8,SUB604,Professional Practice,3,100
+Civil,2022,8,SUB605,Elective I,3,100
+Civil,2022,8,SUB701,Major Project,8,100
+Civil,2022,8,SUB702,Seminar,2,100
+Chem,2022,1,SUB101,Programming Fundamentals,4,100
+Chem,2022,1,SUB102,Engineering Mathematics,4,100
+Chem,2022,1,SUB103,Engineering Physics,3,100
+Chem,2022,1,SUB104,Digital Fundamentals,3,100
+Chem,2022,2,SUB105,Communication Skills,2,100
+Chem,2022,2,SUB201,Data Structures,4,100
+Chem,2022,2,SUB202,Database Systems,4,100
+Chem,2022,2,SUB203,Computer Networks,4,100
+Chem,2022,3,SUB204,Operating Systems,4,100
+Chem,2022,3,SUB205,Discrete Mathematics,3,100
+Chem,2022,3,SUB301,Software Engineering,4,100
+Chem,2022,3,SUB302,Computer Architecture,4,100
+Chem,2022,4,SUB303,Web Technologies,3,100
+Chem,2022,4,SUB304,Probability and Statistics,3,100
+Chem,2022,4,SUB305,Technical Writing,2,100
+Chem,2022,4,SUB401,Machine Learning,4,100
+Chem,2022,5,SUB402,Distributed Systems,4,100
+Chem,2022,5,SUB403,Information Security,3,100
+Chem,2022,5,SUB404,Cloud Computing,3,100
+Chem,2022,5,SUB405,Management Fundamentals,2,100
+Chem,2022,6,SUB501,Deep Learning,4,100
+Chem,2022,6,SUB502,Big Data Analytics,4,100
+Chem,2022,6,SUB503,Mobile Computing,3,100
+Chem,2022,6,SUB504,Advanced Databases,3,100
+Chem,2022,7,SUB505,Entrepreneurship,2,100
+Chem,2022,7,SUB601,Artificial Intelligence,4,100
+Chem,2022,7,SUB602,Advanced Algorithms,4,100
+Chem,2022,7,SUB603,Project Engineering,3,100
+Chem,2022,8,SUB604,Professional Practice,3,100
+Chem,2022,8,SUB605,Elective I,3,100
+Chem,2022,8,SUB701,Major Project,8,100
+Chem,2022,8,SUB702,Seminar,2,100
+Metallurgy,2022,1,SUB101,Programming Fundamentals,4,100
+Metallurgy,2022,1,SUB102,Engineering Mathematics,4,100
+Metallurgy,2022,1,SUB103,Engineering Physics,3,100
+Metallurgy,2022,1,SUB104,Digital Fundamentals,3,100
+Metallurgy,2022,2,SUB105,Communication Skills,2,100
+Metallurgy,2022,2,SUB201,Data Structures,4,100
+Metallurgy,2022,2,SUB202,Database Systems,4,100
+Metallurgy,2022,2,SUB203,Computer Networks,4,100
+Metallurgy,2022,3,SUB204,Operating Systems,4,100
+Metallurgy,2022,3,SUB205,Discrete Mathematics,3,100
+Metallurgy,2022,3,SUB301,Software Engineering,4,100
+Metallurgy,2022,3,SUB302,Computer Architecture,4,100
+Metallurgy,2022,4,SUB303,Web Technologies,3,100
+Metallurgy,2022,4,SUB304,Probability and Statistics,3,100
+Metallurgy,2022,4,SUB305,Technical Writing,2,100
+Metallurgy,2022,4,SUB401,Machine Learning,4,100
+Metallurgy,2022,5,SUB402,Distributed Systems,4,100
+Metallurgy,2022,5,SUB403,Information Security,3,100
+Metallurgy,2022,5,SUB404,Cloud Computing,3,100
+Metallurgy,2022,5,SUB405,Management Fundamentals,2,100
+Metallurgy,2022,6,SUB501,Deep Learning,4,100
+Metallurgy,2022,6,SUB502,Big Data Analytics,4,100
+Metallurgy,2022,6,SUB503,Mobile Computing,3,100
+Metallurgy,2022,6,SUB504,Advanced Databases,3,100
+Metallurgy,2022,7,SUB505,Entrepreneurship,2,100
+Metallurgy,2022,7,SUB601,Artificial Intelligence,4,100
+Metallurgy,2022,7,SUB602,Advanced Algorithms,4,100
+Metallurgy,2022,7,SUB603,Project Engineering,3,100
+Metallurgy,2022,8,SUB604,Professional Practice,3,100
+Metallurgy,2022,8,SUB605,Elective I,3,100
+Metallurgy,2022,8,SUB701,Major Project,8,100
+Metallurgy,2022,8,SUB702,Seminar,2,100
+ECE,2022,1,SUB101,Programming Fundamentals,4,100
+ECE,2022,1,SUB102,Engineering Mathematics,4,100
+ECE,2022,1,SUB103,Engineering Physics,3,100
+ECE,2022,1,SUB104,Digital Fundamentals,3,100
+ECE,2022,2,SUB105,Communication Skills,2,100
+ECE,2022,2,SUB201,Data Structures,4,100
+ECE,2022,2,SUB202,Database Systems,4,100
+ECE,2022,2,SUB203,Computer Networks,4,100
+ECE,2022,3,SUB204,Operating Systems,4,100
+ECE,2022,3,SUB205,Discrete Mathematics,3,100
+ECE,2022,3,SUB301,Software Engineering,4,100
+ECE,2022,3,SUB302,Computer Architecture,4,100
+ECE,2022,4,SUB303,Web Technologies,3,100
+ECE,2022,4,SUB304,Probability and Statistics,3,100
+ECE,2022,4,SUB305,Technical Writing,2,100
+ECE,2022,4,SUB401,Machine Learning,4,100
+ECE,2022,5,SUB402,Distributed Systems,4,100
+ECE,2022,5,SUB403,Information Security,3,100
+ECE,2022,5,SUB404,Cloud Computing,3,100
+ECE,2022,5,SUB405,Management Fundamentals,2,100
+ECE,2022,6,SUB501,Deep Learning,4,100
+ECE,2022,6,SUB502,Big Data Analytics,4,100
+ECE,2022,6,SUB503,Mobile Computing,3,100
+ECE,2022,6,SUB504,Advanced Databases,3,100
+ECE,2022,7,SUB505,Entrepreneurship,2,100
+ECE,2022,7,SUB601,Artificial Intelligence,4,100
+ECE,2022,7,SUB602,Advanced Algorithms,4,100
+ECE,2022,7,SUB603,Project Engineering,3,100
+ECE,2022,8,SUB604,Professional Practice,3,100
+ECE,2022,8,SUB605,Elective I,3,100
+ECE,2022,8,SUB701,Major Project,8,100
+ECE,2022,8,SUB702,Seminar,2,100
+EEE,2022,1,SUB101,Programming Fundamentals,4,100
+EEE,2022,1,SUB102,Engineering Mathematics,4,100
+EEE,2022,1,SUB103,Engineering Physics,3,100
+EEE,2022,1,SUB104,Digital Fundamentals,3,100
+EEE,2022,2,SUB105,Communication Skills,2,100
+EEE,2022,2,SUB201,Data Structures,4,100
+EEE,2022,2,SUB202,Database Systems,4,100
+EEE,2022,2,SUB203,Computer Networks,4,100
+EEE,2022,3,SUB204,Operating Systems,4,100
+EEE,2022,3,SUB205,Discrete Mathematics,3,100
+EEE,2022,3,SUB301,Software Engineering,4,100
+EEE,2022,3,SUB302,Computer Architecture,4,100
+EEE,2022,4,SUB303,Web Technologies,3,100
+EEE,2022,4,SUB304,Probability and Statistics,3,100
+EEE,2022,4,SUB305,Technical Writing,2,100
+EEE,2022,4,SUB401,Machine Learning,4,100
+EEE,2022,5,SUB402,Distributed Systems,4,100
+EEE,2022,5,SUB403,Information Security,3,100
+EEE,2022,5,SUB404,Cloud Computing,3,100
+EEE,2022,5,SUB405,Management Fundamentals,2,100
+EEE,2022,6,SUB501,Deep Learning,4,100
+EEE,2022,6,SUB502,Big Data Analytics,4,100
+EEE,2022,6,SUB503,Mobile Computing,3,100
+EEE,2022,6,SUB504,Advanced Databases,3,100
+EEE,2022,7,SUB505,Entrepreneurship,2,100
+EEE,2022,7,SUB601,Artificial Intelligence,4,100
+EEE,2022,7,SUB602,Advanced Algorithms,4,100
+EEE,2022,7,SUB603,Project Engineering,3,100
+EEE,2022,8,SUB604,Professional Practice,3,100
+EEE,2022,8,SUB605,Elective I,3,100
+EEE,2022,8,SUB701,Major Project,8,100
+EEE,2022,8,SUB702,Seminar,2,100
+CDS,2022,1,SUB101,Programming Fundamentals,4,100
+CDS,2022,1,SUB102,Engineering Mathematics,4,100
+CDS,2022,1,SUB103,Engineering Physics,3,100
+CDS,2022,1,SUB104,Digital Fundamentals,3,100
+CDS,2022,2,SUB105,Communication Skills,2,100
+CDS,2022,2,SUB201,Data Structures,4,100
+CDS,2022,2,SUB202,Database Systems,4,100
+CDS,2022,2,SUB203,Computer Networks,4,100
+CDS,2022,3,SUB204,Operating Systems,4,100
+CDS,2022,3,SUB205,Discrete Mathematics,3,100
+CDS,2022,3,SUB301,Software Engineering,4,100
+CDS,2022,3,SUB302,Computer Architecture,4,100
+CDS,2022,4,SUB303,Web Technologies,3,100
+CDS,2022,4,SUB304,Probability and Statistics,3,100
+CDS,2022,4,SUB305,Technical Writing,2,100
+CDS,2022,4,SUB401,Machine Learning,4,100
+CDS,2022,5,SUB402,Distributed Systems,4,100
+CDS,2022,5,SUB403,Information Security,3,100
+CDS,2022,5,SUB404,Cloud Computing,3,100
+CDS,2022,5,SUB405,Management Fundamentals,2,100
+CDS,2022,6,SUB501,Deep Learning,4,100
+CDS,2022,6,SUB502,Big Data Analytics,4,100
+CDS,2022,6,SUB503,Mobile Computing,3,100
+CDS,2022,6,SUB504,Advanced Databases,3,100
+CDS,2022,7,SUB505,Entrepreneurship,2,100
+CDS,2022,7,SUB601,Artificial Intelligence,4,100
+CDS,2022,7,SUB602,Advanced Algorithms,4,100
+CDS,2022,7,SUB603,Project Engineering,3,100
+CDS,2022,8,SUB604,Professional Practice,3,100
+CDS,2022,8,SUB605,Elective I,3,100
+CDS,2022,8,SUB701,Major Project,8,100
+CDS,2022,8,SUB702,Seminar,2,100
+CS,2023,1,SUB101,Programming Fundamentals,4,100
+CS,2023,1,SUB102,Engineering Mathematics,4,100
+CS,2023,1,SUB103,Engineering Physics,3,100
+CS,2023,1,SUB104,Digital Fundamentals,3,100
+CS,2023,2,SUB105,Communication Skills,2,100
+CS,2023,2,SUB201,Data Structures,4,100
+CS,2023,2,SUB202,Database Systems,4,100
+CS,2023,2,SUB203,Computer Networks,4,100
+CS,2023,3,SUB204,Operating Systems,4,100
+CS,2023,3,SUB205,Discrete Mathematics,3,100
+CS,2023,3,SUB301,Software Engineering,4,100
+CS,2023,3,SUB302,Computer Architecture,4,100
+CS,2023,4,SUB303,Web Technologies,3,100
+CS,2023,4,SUB304,Probability and Statistics,3,100
+CS,2023,4,SUB305,Technical Writing,2,100
+CS,2023,4,SUB401,Machine Learning,4,100
+CS,2023,5,SUB402,Distributed Systems,4,100
+CS,2023,5,SUB403,Information Security,3,100
+CS,2023,5,SUB404,Cloud Computing,3,100
+CS,2023,5,SUB405,Management Fundamentals,2,100
+CS,2023,6,SUB501,Deep Learning,4,100
+CS,2023,6,SUB502,Big Data Analytics,4,100
+CS,2023,6,SUB503,Mobile Computing,3,100
+CS,2023,6,SUB504,Advanced Databases,3,100
+CS,2023,7,SUB505,Entrepreneurship,2,100
+CS,2023,7,SUB601,Artificial Intelligence,4,100
+CS,2023,7,SUB602,Advanced Algorithms,4,100
+CS,2023,7,SUB603,Project Engineering,3,100
+CS,2023,8,SUB604,Professional Practice,3,100
+CS,2023,8,SUB605,Elective I,3,100
+CS,2023,8,SUB701,Major Project,8,100
+CS,2023,8,SUB702,Seminar,2,100
+IT,2023,1,SUB101,Programming Fundamentals,4,100
+IT,2023,1,SUB102,Engineering Mathematics,4,100
+IT,2023,1,SUB103,Engineering Physics,3,100
+IT,2023,1,SUB104,Digital Fundamentals,3,100
+IT,2023,2,SUB105,Communication Skills,2,100
+IT,2023,2,SUB201,Data Structures,4,100
+IT,2023,2,SUB202,Database Systems,4,100
+IT,2023,2,SUB203,Computer Networks,4,100
+IT,2023,3,SUB204,Operating Systems,4,100
+IT,2023,3,SUB205,Discrete Mathematics,3,100
+IT,2023,3,SUB301,Software Engineering,4,100
+IT,2023,3,SUB302,Computer Architecture,4,100
+IT,2023,4,SUB303,Web Technologies,3,100
+IT,2023,4,SUB304,Probability and Statistics,3,100
+IT,2023,4,SUB305,Technical Writing,2,100
+IT,2023,4,SUB401,Machine Learning,4,100
+IT,2023,5,SUB402,Distributed Systems,4,100
+IT,2023,5,SUB403,Information Security,3,100
+IT,2023,5,SUB404,Cloud Computing,3,100
+IT,2023,5,SUB405,Management Fundamentals,2,100
+IT,2023,6,SUB501,Deep Learning,4,100
+IT,2023,6,SUB502,Big Data Analytics,4,100
+IT,2023,6,SUB503,Mobile Computing,3,100
+IT,2023,6,SUB504,Advanced Databases,3,100
+IT,2023,7,SUB505,Entrepreneurship,2,100
+IT,2023,7,SUB601,Artificial Intelligence,4,100
+IT,2023,7,SUB602,Advanced Algorithms,4,100
+IT,2023,7,SUB603,Project Engineering,3,100
+IT,2023,8,SUB604,Professional Practice,3,100
+IT,2023,8,SUB605,Elective I,3,100
+IT,2023,8,SUB701,Major Project,8,100
+IT,2023,8,SUB702,Seminar,2,100
+AI,2023,1,SUB101,Programming Fundamentals,4,100
+AI,2023,1,SUB102,Engineering Mathematics,4,100
+AI,2023,1,SUB103,Engineering Physics,3,100
+AI,2023,1,SUB104,Digital Fundamentals,3,100
+AI,2023,2,SUB105,Communication Skills,2,100
+AI,2023,2,SUB201,Data Structures,4,100
+AI,2023,2,SUB202,Database Systems,4,100
+AI,2023,2,SUB203,Computer Networks,4,100
+AI,2023,3,SUB204,Operating Systems,4,100
+AI,2023,3,SUB205,Discrete Mathematics,3,100
+AI,2023,3,SUB301,Software Engineering,4,100
+AI,2023,3,SUB302,Computer Architecture,4,100
+AI,2023,4,SUB303,Web Technologies,3,100
+AI,2023,4,SUB304,Probability and Statistics,3,100
+AI,2023,4,SUB305,Technical Writing,2,100
+AI,2023,4,SUB401,Machine Learning,4,100
+AI,2023,5,SUB402,Distributed Systems,4,100
+AI,2023,5,SUB403,Information Security,3,100
+AI,2023,5,SUB404,Cloud Computing,3,100
+AI,2023,5,SUB405,Management Fundamentals,2,100
+AI,2023,6,SUB501,Deep Learning,4,100
+AI,2023,6,SUB502,Big Data Analytics,4,100
+AI,2023,6,SUB503,Mobile Computing,3,100
+AI,2023,6,SUB504,Advanced Databases,3,100
+AI,2023,7,SUB505,Entrepreneurship,2,100
+AI,2023,7,SUB601,Artificial Intelligence,4,100
+AI,2023,7,SUB602,Advanced Algorithms,4,100
+AI,2023,7,SUB603,Project Engineering,3,100
+AI,2023,8,SUB604,Professional Practice,3,100
+AI,2023,8,SUB605,Elective I,3,100
+AI,2023,8,SUB701,Major Project,8,100
+AI,2023,8,SUB702,Seminar,2,100
+Mech,2023,1,SUB101,Programming Fundamentals,4,100
+Mech,2023,1,SUB102,Engineering Mathematics,4,100
+Mech,2023,1,SUB103,Engineering Physics,3,100
+Mech,2023,1,SUB104,Digital Fundamentals,3,100
+Mech,2023,2,SUB105,Communication Skills,2,100
+Mech,2023,2,SUB201,Data Structures,4,100
+Mech,2023,2,SUB202,Database Systems,4,100
+Mech,2023,2,SUB203,Computer Networks,4,100
+Mech,2023,3,SUB204,Operating Systems,4,100
+Mech,2023,3,SUB205,Discrete Mathematics,3,100
+Mech,2023,3,SUB301,Software Engineering,4,100
+Mech,2023,3,SUB302,Computer Architecture,4,100
+Mech,2023,4,SUB303,Web Technologies,3,100
+Mech,2023,4,SUB304,Probability and Statistics,3,100
+Mech,2023,4,SUB305,Technical Writing,2,100
+Mech,2023,4,SUB401,Machine Learning,4,100
+Mech,2023,5,SUB402,Distributed Systems,4,100
+Mech,2023,5,SUB403,Information Security,3,100
+Mech,2023,5,SUB404,Cloud Computing,3,100
+Mech,2023,5,SUB405,Management Fundamentals,2,100
+Mech,2023,6,SUB501,Deep Learning,4,100
+Mech,2023,6,SUB502,Big Data Analytics,4,100
+Mech,2023,6,SUB503,Mobile Computing,3,100
+Mech,2023,6,SUB504,Advanced Databases,3,100
+Mech,2023,7,SUB505,Entrepreneurship,2,100
+Mech,2023,7,SUB601,Artificial Intelligence,4,100
+Mech,2023,7,SUB602,Advanced Algorithms,4,100
+Mech,2023,7,SUB603,Project Engineering,3,100
+Mech,2023,8,SUB604,Professional Practice,3,100
+Mech,2023,8,SUB605,Elective I,3,100
+Mech,2023,8,SUB701,Major Project,8,100
+Mech,2023,8,SUB702,Seminar,2,100
+Civil,2023,1,SUB101,Programming Fundamentals,4,100
+Civil,2023,1,SUB102,Engineering Mathematics,4,100
+Civil,2023,1,SUB103,Engineering Physics,3,100
+Civil,2023,1,SUB104,Digital Fundamentals,3,100
+Civil,2023,2,SUB105,Communication Skills,2,100
+Civil,2023,2,SUB201,Data Structures,4,100
+Civil,2023,2,SUB202,Database Systems,4,100
+Civil,2023,2,SUB203,Computer Networks,4,100
+Civil,2023,3,SUB204,Operating Systems,4,100
+Civil,2023,3,SUB205,Discrete Mathematics,3,100
+Civil,2023,3,SUB301,Software Engineering,4,100
+Civil,2023,3,SUB302,Computer Architecture,4,100
+Civil,2023,4,SUB303,Web Technologies,3,100
+Civil,2023,4,SUB304,Probability and Statistics,3,100
+Civil,2023,4,SUB305,Technical Writing,2,100
+Civil,2023,4,SUB401,Machine Learning,4,100
+Civil,2023,5,SUB402,Distributed Systems,4,100
+Civil,2023,5,SUB403,Information Security,3,100
+Civil,2023,5,SUB404,Cloud Computing,3,100
+Civil,2023,5,SUB405,Management Fundamentals,2,100
+Civil,2023,6,SUB501,Deep Learning,4,100
+Civil,2023,6,SUB502,Big Data Analytics,4,100
+Civil,2023,6,SUB503,Mobile Computing,3,100
+Civil,2023,6,SUB504,Advanced Databases,3,100
+Civil,2023,7,SUB505,Entrepreneurship,2,100
+Civil,2023,7,SUB601,Artificial Intelligence,4,100
+Civil,2023,7,SUB602,Advanced Algorithms,4,100
+Civil,2023,7,SUB603,Project Engineering,3,100
+Civil,2023,8,SUB604,Professional Practice,3,100
+Civil,2023,8,SUB605,Elective I,3,100
+Civil,2023,8,SUB701,Major Project,8,100
+Civil,2023,8,SUB702,Seminar,2,100
+Chem,2023,1,SUB101,Programming Fundamentals,4,100
+Chem,2023,1,SUB102,Engineering Mathematics,4,100
+Chem,2023,1,SUB103,Engineering Physics,3,100
+Chem,2023,1,SUB104,Digital Fundamentals,3,100
+Chem,2023,2,SUB105,Communication Skills,2,100
+Chem,2023,2,SUB201,Data Structures,4,100
+Chem,2023,2,SUB202,Database Systems,4,100
+Chem,2023,2,SUB203,Computer Networks,4,100
+Chem,2023,3,SUB204,Operating Systems,4,100
+Chem,2023,3,SUB205,Discrete Mathematics,3,100
+Chem,2023,3,SUB301,Software Engineering,4,100
+Chem,2023,3,SUB302,Computer Architecture,4,100
+Chem,2023,4,SUB303,Web Technologies,3,100
+Chem,2023,4,SUB304,Probability and Statistics,3,100
+Chem,2023,4,SUB305,Technical Writing,2,100
+Chem,2023,4,SUB401,Machine Learning,4,100
+Chem,2023,5,SUB402,Distributed Systems,4,100
+Chem,2023,5,SUB403,Information Security,3,100
+Chem,2023,5,SUB404,Cloud Computing,3,100
+Chem,2023,5,SUB405,Management Fundamentals,2,100
+Chem,2023,6,SUB501,Deep Learning,4,100
+Chem,2023,6,SUB502,Big Data Analytics,4,100
+Chem,2023,6,SUB503,Mobile Computing,3,100
+Chem,2023,6,SUB504,Advanced Databases,3,100
+Chem,2023,7,SUB505,Entrepreneurship,2,100
+Chem,2023,7,SUB601,Artificial Intelligence,4,100
+Chem,2023,7,SUB602,Advanced Algorithms,4,100
+Chem,2023,7,SUB603,Project Engineering,3,100
+Chem,2023,8,SUB604,Professional Practice,3,100
+Chem,2023,8,SUB605,Elective I,3,100
+Chem,2023,8,SUB701,Major Project,8,100
+Chem,2023,8,SUB702,Seminar,2,100
+Metallurgy,2023,1,SUB101,Programming Fundamentals,4,100
+Metallurgy,2023,1,SUB102,Engineering Mathematics,4,100
+Metallurgy,2023,1,SUB103,Engineering Physics,3,100
+Metallurgy,2023,1,SUB104,Digital Fundamentals,3,100
+Metallurgy,2023,2,SUB105,Communication Skills,2,100
+Metallurgy,2023,2,SUB201,Data Structures,4,100
+Metallurgy,2023,2,SUB202,Database Systems,4,100
+Metallurgy,2023,2,SUB203,Computer Networks,4,100
+Metallurgy,2023,3,SUB204,Operating Systems,4,100
+Metallurgy,2023,3,SUB205,Discrete Mathematics,3,100
+Metallurgy,2023,3,SUB301,Software Engineering,4,100
+Metallurgy,2023,3,SUB302,Computer Architecture,4,100
+Metallurgy,2023,4,SUB303,Web Technologies,3,100
+Metallurgy,2023,4,SUB304,Probability and Statistics,3,100
+Metallurgy,2023,4,SUB305,Technical Writing,2,100
+Metallurgy,2023,4,SUB401,Machine Learning,4,100
+Metallurgy,2023,5,SUB402,Distributed Systems,4,100
+Metallurgy,2023,5,SUB403,Information Security,3,100
+Metallurgy,2023,5,SUB404,Cloud Computing,3,100
+Metallurgy,2023,5,SUB405,Management Fundamentals,2,100
+Metallurgy,2023,6,SUB501,Deep Learning,4,100
+Metallurgy,2023,6,SUB502,Big Data Analytics,4,100
+Metallurgy,2023,6,SUB503,Mobile Computing,3,100
+Metallurgy,2023,6,SUB504,Advanced Databases,3,100
+Metallurgy,2023,7,SUB505,Entrepreneurship,2,100
+Metallurgy,2023,7,SUB601,Artificial Intelligence,4,100
+Metallurgy,2023,7,SUB602,Advanced Algorithms,4,100
+Metallurgy,2023,7,SUB603,Project Engineering,3,100
+Metallurgy,2023,8,SUB604,Professional Practice,3,100
+Metallurgy,2023,8,SUB605,Elective I,3,100
+Metallurgy,2023,8,SUB701,Major Project,8,100
+Metallurgy,2023,8,SUB702,Seminar,2,100
+ECE,2023,1,SUB101,Programming Fundamentals,4,100
+ECE,2023,1,SUB102,Engineering Mathematics,4,100
+ECE,2023,1,SUB103,Engineering Physics,3,100
+ECE,2023,1,SUB104,Digital Fundamentals,3,100
+ECE,2023,2,SUB105,Communication Skills,2,100
+ECE,2023,2,SUB201,Data Structures,4,100
+ECE,2023,2,SUB202,Database Systems,4,100
+ECE,2023,2,SUB203,Computer Networks,4,100
+ECE,2023,3,SUB204,Operating Systems,4,100
+ECE,2023,3,SUB205,Discrete Mathematics,3,100
+ECE,2023,3,SUB301,Software Engineering,4,100
+ECE,2023,3,SUB302,Computer Architecture,4,100
+ECE,2023,4,SUB303,Web Technologies,3,100
+ECE,2023,4,SUB304,Probability and Statistics,3,100
+ECE,2023,4,SUB305,Technical Writing,2,100
+ECE,2023,4,SUB401,Machine Learning,4,100
+ECE,2023,5,SUB402,Distributed Systems,4,100
+ECE,2023,5,SUB403,Information Security,3,100
+ECE,2023,5,SUB404,Cloud Computing,3,100
+ECE,2023,5,SUB405,Management Fundamentals,2,100
+ECE,2023,6,SUB501,Deep Learning,4,100
+ECE,2023,6,SUB502,Big Data Analytics,4,100
+ECE,2023,6,SUB503,Mobile Computing,3,100
+ECE,2023,6,SUB504,Advanced Databases,3,100
+ECE,2023,7,SUB505,Entrepreneurship,2,100
+ECE,2023,7,SUB601,Artificial Intelligence,4,100
+ECE,2023,7,SUB602,Advanced Algorithms,4,100
+ECE,2023,7,SUB603,Project Engineering,3,100
+ECE,2023,8,SUB604,Professional Practice,3,100
+ECE,2023,8,SUB605,Elective I,3,100
+ECE,2023,8,SUB701,Major Project,8,100
+ECE,2023,8,SUB702,Seminar,2,100
+EEE,2023,1,SUB101,Programming Fundamentals,4,100
+EEE,2023,1,SUB102,Engineering Mathematics,4,100
+EEE,2023,1,SUB103,Engineering Physics,3,100
+EEE,2023,1,SUB104,Digital Fundamentals,3,100
+EEE,2023,2,SUB105,Communication Skills,2,100
+EEE,2023,2,SUB201,Data Structures,4,100
+EEE,2023,2,SUB202,Database Systems,4,100
+EEE,2023,2,SUB203,Computer Networks,4,100
+EEE,2023,3,SUB204,Operating Systems,4,100
+EEE,2023,3,SUB205,Discrete Mathematics,3,100
+EEE,2023,3,SUB301,Software Engineering,4,100
+EEE,2023,3,SUB302,Computer Architecture,4,100
+EEE,2023,4,SUB303,Web Technologies,3,100
+EEE,2023,4,SUB304,Probability and Statistics,3,100
+EEE,2023,4,SUB305,Technical Writing,2,100
+EEE,2023,4,SUB401,Machine Learning,4,100
+EEE,2023,5,SUB402,Distributed Systems,4,100
+EEE,2023,5,SUB403,Information Security,3,100
+EEE,2023,5,SUB404,Cloud Computing,3,100
+EEE,2023,5,SUB405,Management Fundamentals,2,100
+EEE,2023,6,SUB501,Deep Learning,4,100
+EEE,2023,6,SUB502,Big Data Analytics,4,100
+EEE,2023,6,SUB503,Mobile Computing,3,100
+EEE,2023,6,SUB504,Advanced Databases,3,100
+EEE,2023,7,SUB505,Entrepreneurship,2,100
+EEE,2023,7,SUB601,Artificial Intelligence,4,100
+EEE,2023,7,SUB602,Advanced Algorithms,4,100
+EEE,2023,7,SUB603,Project Engineering,3,100
+EEE,2023,8,SUB604,Professional Practice,3,100
+EEE,2023,8,SUB605,Elective I,3,100
+EEE,2023,8,SUB701,Major Project,8,100
+EEE,2023,8,SUB702,Seminar,2,100
+CDS,2023,1,SUB101,Programming Fundamentals,4,100
+CDS,2023,1,SUB102,Engineering Mathematics,4,100
+CDS,2023,1,SUB103,Engineering Physics,3,100
+CDS,2023,1,SUB104,Digital Fundamentals,3,100
+CDS,2023,2,SUB105,Communication Skills,2,100
+CDS,2023,2,SUB201,Data Structures,4,100
+CDS,2023,2,SUB202,Database Systems,4,100
+CDS,2023,2,SUB203,Computer Networks,4,100
+CDS,2023,3,SUB204,Operating Systems,4,100
+CDS,2023,3,SUB205,Discrete Mathematics,3,100
+CDS,2023,3,SUB301,Software Engineering,4,100
+CDS,2023,3,SUB302,Computer Architecture,4,100
+CDS,2023,4,SUB303,Web Technologies,3,100
+CDS,2023,4,SUB304,Probability and Statistics,3,100
+CDS,2023,4,SUB305,Technical Writing,2,100
+CDS,2023,4,SUB401,Machine Learning,4,100
+CDS,2023,5,SUB402,Distributed Systems,4,100
+CDS,2023,5,SUB403,Information Security,3,100
+CDS,2023,5,SUB404,Cloud Computing,3,100
+CDS,2023,5,SUB405,Management Fundamentals,2,100
+CDS,2023,6,SUB501,Deep Learning,4,100
+CDS,2023,6,SUB502,Big Data Analytics,4,100
+CDS,2023,6,SUB503,Mobile Computing,3,100
+CDS,2023,6,SUB504,Advanced Databases,3,100
+CDS,2023,7,SUB505,Entrepreneurship,2,100
+CDS,2023,7,SUB601,Artificial Intelligence,4,100
+CDS,2023,7,SUB602,Advanced Algorithms,4,100
+CDS,2023,7,SUB603,Project Engineering,3,100
+CDS,2023,8,SUB604,Professional Practice,3,100
+CDS,2023,8,SUB605,Elective I,3,100
+CDS,2023,8,SUB701,Major Project,8,100
+CDS,2023,8,SUB702,Seminar,2,100
+CS,2024,1,SUB101,Programming Fundamentals,4,100
+CS,2024,1,SUB102,Engineering Mathematics,4,100
+CS,2024,1,SUB103,Engineering Physics,3,100
+CS,2024,1,SUB104,Digital Fundamentals,3,100
+CS,2024,2,SUB105,Communication Skills,2,100
+CS,2024,2,SUB201,Data Structures,4,100
+CS,2024,2,SUB202,Database Systems,4,100
+CS,2024,2,SUB203,Computer Networks,4,100
+CS,2024,3,SUB204,Operating Systems,4,100
+CS,2024,3,SUB205,Discrete Mathematics,3,100
+CS,2024,3,SUB301,Software Engineering,4,100
+CS,2024,3,SUB302,Computer Architecture,4,100
+CS,2024,4,SUB303,Web Technologies,3,100
+CS,2024,4,SUB304,Probability and Statistics,3,100
+CS,2024,4,SUB305,Technical Writing,2,100
+CS,2024,4,SUB401,Machine Learning,4,100
+CS,2024,5,SUB402,Distributed Systems,4,100
+CS,2024,5,SUB403,Information Security,3,100
+CS,2024,5,SUB404,Cloud Computing,3,100
+CS,2024,5,SUB405,Management Fundamentals,2,100
+CS,2024,6,SUB501,Deep Learning,4,100
+CS,2024,6,SUB502,Big Data Analytics,4,100
+CS,2024,6,SUB503,Mobile Computing,3,100
+CS,2024,6,SUB504,Advanced Databases,3,100
+CS,2024,7,SUB505,Entrepreneurship,2,100
+CS,2024,7,SUB601,Artificial Intelligence,4,100
+CS,2024,7,SUB602,Advanced Algorithms,4,100
+CS,2024,7,SUB603,Project Engineering,3,100
+CS,2024,8,SUB604,Professional Practice,3,100
+CS,2024,8,SUB605,Elective I,3,100
+CS,2024,8,SUB701,Major Project,8,100
+CS,2024,8,SUB702,Seminar,2,100
+IT,2024,1,SUB101,Programming Fundamentals,4,100
+IT,2024,1,SUB102,Engineering Mathematics,4,100
+IT,2024,1,SUB103,Engineering Physics,3,100
+IT,2024,1,SUB104,Digital Fundamentals,3,100
+IT,2024,2,SUB105,Communication Skills,2,100
+IT,2024,2,SUB201,Data Structures,4,100
+IT,2024,2,SUB202,Database Systems,4,100
+IT,2024,2,SUB203,Computer Networks,4,100
+IT,2024,3,SUB204,Operating Systems,4,100
+IT,2024,3,SUB205,Discrete Mathematics,3,100
+IT,2024,3,SUB301,Software Engineering,4,100
+IT,2024,3,SUB302,Computer Architecture,4,100
+IT,2024,4,SUB303,Web Technologies,3,100
+IT,2024,4,SUB304,Probability and Statistics,3,100
+IT,2024,4,SUB305,Technical Writing,2,100
+IT,2024,4,SUB401,Machine Learning,4,100
+IT,2024,5,SUB402,Distributed Systems,4,100
+IT,2024,5,SUB403,Information Security,3,100
+IT,2024,5,SUB404,Cloud Computing,3,100
+IT,2024,5,SUB405,Management Fundamentals,2,100
+IT,2024,6,SUB501,Deep Learning,4,100
+IT,2024,6,SUB502,Big Data Analytics,4,100
+IT,2024,6,SUB503,Mobile Computing,3,100
+IT,2024,6,SUB504,Advanced Databases,3,100
+IT,2024,7,SUB505,Entrepreneurship,2,100
+IT,2024,7,SUB601,Artificial Intelligence,4,100
+IT,2024,7,SUB602,Advanced Algorithms,4,100
+IT,2024,7,SUB603,Project Engineering,3,100
+IT,2024,8,SUB604,Professional Practice,3,100
+IT,2024,8,SUB605,Elective I,3,100
+IT,2024,8,SUB701,Major Project,8,100
+IT,2024,8,SUB702,Seminar,2,100
+AI,2024,1,SUB101,Programming Fundamentals,4,100
+AI,2024,1,SUB102,Engineering Mathematics,4,100
+AI,2024,1,SUB103,Engineering Physics,3,100
+AI,2024,1,SUB104,Digital Fundamentals,3,100
+AI,2024,2,SUB105,Communication Skills,2,100
+AI,2024,2,SUB201,Data Structures,4,100
+AI,2024,2,SUB202,Database Systems,4,100
+AI,2024,2,SUB203,Computer Networks,4,100
+AI,2024,3,SUB204,Operating Systems,4,100
+AI,2024,3,SUB205,Discrete Mathematics,3,100
+AI,2024,3,SUB301,Software Engineering,4,100
+AI,2024,3,SUB302,Computer Architecture,4,100
+AI,2024,4,SUB303,Web Technologies,3,100
+AI,2024,4,SUB304,Probability and Statistics,3,100
+AI,2024,4,SUB305,Technical Writing,2,100
+AI,2024,4,SUB401,Machine Learning,4,100
+AI,2024,5,SUB402,Distributed Systems,4,100
+AI,2024,5,SUB403,Information Security,3,100
+AI,2024,5,SUB404,Cloud Computing,3,100
+AI,2024,5,SUB405,Management Fundamentals,2,100
+AI,2024,6,SUB501,Deep Learning,4,100
+AI,2024,6,SUB502,Big Data Analytics,4,100
+AI,2024,6,SUB503,Mobile Computing,3,100
+AI,2024,6,SUB504,Advanced Databases,3,100
+AI,2024,7,SUB505,Entrepreneurship,2,100
+AI,2024,7,SUB601,Artificial Intelligence,4,100
+AI,2024,7,SUB602,Advanced Algorithms,4,100
+AI,2024,7,SUB603,Project Engineering,3,100
+AI,2024,8,SUB604,Professional Practice,3,100
+AI,2024,8,SUB605,Elective I,3,100
+AI,2024,8,SUB701,Major Project,8,100
+AI,2024,8,SUB702,Seminar,2,100
+Mech,2024,1,SUB101,Programming Fundamentals,4,100
+Mech,2024,1,SUB102,Engineering Mathematics,4,100
+Mech,2024,1,SUB103,Engineering Physics,3,100
+Mech,2024,1,SUB104,Digital Fundamentals,3,100
+Mech,2024,2,SUB105,Communication Skills,2,100
+Mech,2024,2,SUB201,Data Structures,4,100
+Mech,2024,2,SUB202,Database Systems,4,100
+Mech,2024,2,SUB203,Computer Networks,4,100
+Mech,2024,3,SUB204,Operating Systems,4,100
+Mech,2024,3,SUB205,Discrete Mathematics,3,100
+Mech,2024,3,SUB301,Software Engineering,4,100
+Mech,2024,3,SUB302,Computer Architecture,4,100
+Mech,2024,4,SUB303,Web Technologies,3,100
+Mech,2024,4,SUB304,Probability and Statistics,3,100
+Mech,2024,4,SUB305,Technical Writing,2,100
+Mech,2024,4,SUB401,Machine Learning,4,100
+Mech,2024,5,SUB402,Distributed Systems,4,100
+Mech,2024,5,SUB403,Information Security,3,100
+Mech,2024,5,SUB404,Cloud Computing,3,100
+Mech,2024,5,SUB405,Management Fundamentals,2,100
+Mech,2024,6,SUB501,Deep Learning,4,100
+Mech,2024,6,SUB502,Big Data Analytics,4,100
+Mech,2024,6,SUB503,Mobile Computing,3,100
+Mech,2024,6,SUB504,Advanced Databases,3,100
+Mech,2024,7,SUB505,Entrepreneurship,2,100
+Mech,2024,7,SUB601,Artificial Intelligence,4,100
+Mech,2024,7,SUB602,Advanced Algorithms,4,100
+Mech,2024,7,SUB603,Project Engineering,3,100
+Mech,2024,8,SUB604,Professional Practice,3,100
+Mech,2024,8,SUB605,Elective I,3,100
+Mech,2024,8,SUB701,Major Project,8,100
+Mech,2024,8,SUB702,Seminar,2,100
+Civil,2024,1,SUB101,Programming Fundamentals,4,100
+Civil,2024,1,SUB102,Engineering Mathematics,4,100
+Civil,2024,1,SUB103,Engineering Physics,3,100
+Civil,2024,1,SUB104,Digital Fundamentals,3,100
+Civil,2024,2,SUB105,Communication Skills,2,100
+Civil,2024,2,SUB201,Data Structures,4,100
+Civil,2024,2,SUB202,Database Systems,4,100
+Civil,2024,2,SUB203,Computer Networks,4,100
+Civil,2024,3,SUB204,Operating Systems,4,100
+Civil,2024,3,SUB205,Discrete Mathematics,3,100
+Civil,2024,3,SUB301,Software Engineering,4,100
+Civil,2024,3,SUB302,Computer Architecture,4,100
+Civil,2024,4,SUB303,Web Technologies,3,100
+Civil,2024,4,SUB304,Probability and Statistics,3,100
+Civil,2024,4,SUB305,Technical Writing,2,100
+Civil,2024,4,SUB401,Machine Learning,4,100
+Civil,2024,5,SUB402,Distributed Systems,4,100
+Civil,2024,5,SUB403,Information Security,3,100
+Civil,2024,5,SUB404,Cloud Computing,3,100
+Civil,2024,5,SUB405,Management Fundamentals,2,100
+Civil,2024,6,SUB501,Deep Learning,4,100
+Civil,2024,6,SUB502,Big Data Analytics,4,100
+Civil,2024,6,SUB503,Mobile Computing,3,100
+Civil,2024,6,SUB504,Advanced Databases,3,100
+Civil,2024,7,SUB505,Entrepreneurship,2,100
+Civil,2024,7,SUB601,Artificial Intelligence,4,100
+Civil,2024,7,SUB602,Advanced Algorithms,4,100
+Civil,2024,7,SUB603,Project Engineering,3,100
+Civil,2024,8,SUB604,Professional Practice,3,100
+Civil,2024,8,SUB605,Elective I,3,100
+Civil,2024,8,SUB701,Major Project,8,100
+Civil,2024,8,SUB702,Seminar,2,100
+Chem,2024,1,SUB101,Programming Fundamentals,4,100
+Chem,2024,1,SUB102,Engineering Mathematics,4,100
+Chem,2024,1,SUB103,Engineering Physics,3,100
+Chem,2024,1,SUB104,Digital Fundamentals,3,100
+Chem,2024,2,SUB105,Communication Skills,2,100
+Chem,2024,2,SUB201,Data Structures,4,100
+Chem,2024,2,SUB202,Database Systems,4,100
+Chem,2024,2,SUB203,Computer Networks,4,100
+Chem,2024,3,SUB204,Operating Systems,4,100
+Chem,2024,3,SUB205,Discrete Mathematics,3,100
+Chem,2024,3,SUB301,Software Engineering,4,100
+Chem,2024,3,SUB302,Computer Architecture,4,100
+Chem,2024,4,SUB303,Web Technologies,3,100
+Chem,2024,4,SUB304,Probability and Statistics,3,100
+Chem,2024,4,SUB305,Technical Writing,2,100
+Chem,2024,4,SUB401,Machine Learning,4,100
+Chem,2024,5,SUB402,Distributed Systems,4,100
+Chem,2024,5,SUB403,Information Security,3,100
+Chem,2024,5,SUB404,Cloud Computing,3,100
+Chem,2024,5,SUB405,Management Fundamentals,2,100
+Chem,2024,6,SUB501,Deep Learning,4,100
+Chem,2024,6,SUB502,Big Data Analytics,4,100
+Chem,2024,6,SUB503,Mobile Computing,3,100
+Chem,2024,6,SUB504,Advanced Databases,3,100
+Chem,2024,7,SUB505,Entrepreneurship,2,100
+Chem,2024,7,SUB601,Artificial Intelligence,4,100
+Chem,2024,7,SUB602,Advanced Algorithms,4,100
+Chem,2024,7,SUB603,Project Engineering,3,100
+Chem,2024,8,SUB604,Professional Practice,3,100
+Chem,2024,8,SUB605,Elective I,3,100
+Chem,2024,8,SUB701,Major Project,8,100
+Chem,2024,8,SUB702,Seminar,2,100
+Metallurgy,2024,1,SUB101,Programming Fundamentals,4,100
+Metallurgy,2024,1,SUB102,Engineering Mathematics,4,100
+Metallurgy,2024,1,SUB103,Engineering Physics,3,100
+Metallurgy,2024,1,SUB104,Digital Fundamentals,3,100
+Metallurgy,2024,2,SUB105,Communication Skills,2,100
+Metallurgy,2024,2,SUB201,Data Structures,4,100
+Metallurgy,2024,2,SUB202,Database Systems,4,100
+Metallurgy,2024,2,SUB203,Computer Networks,4,100
+Metallurgy,2024,3,SUB204,Operating Systems,4,100
+Metallurgy,2024,3,SUB205,Discrete Mathematics,3,100
+Metallurgy,2024,3,SUB301,Software Engineering,4,100
+Metallurgy,2024,3,SUB302,Computer Architecture,4,100
+Metallurgy,2024,4,SUB303,Web Technologies,3,100
+Metallurgy,2024,4,SUB304,Probability and Statistics,3,100
+Metallurgy,2024,4,SUB305,Technical Writing,2,100
+Metallurgy,2024,4,SUB401,Machine Learning,4,100
+Metallurgy,2024,5,SUB402,Distributed Systems,4,100
+Metallurgy,2024,5,SUB403,Information Security,3,100
+Metallurgy,2024,5,SUB404,Cloud Computing,3,100
+Metallurgy,2024,5,SUB405,Management Fundamentals,2,100
+Metallurgy,2024,6,SUB501,Deep Learning,4,100
+Metallurgy,2024,6,SUB502,Big Data Analytics,4,100
+Metallurgy,2024,6,SUB503,Mobile Computing,3,100
+Metallurgy,2024,6,SUB504,Advanced Databases,3,100
+Metallurgy,2024,7,SUB505,Entrepreneurship,2,100
+Metallurgy,2024,7,SUB601,Artificial Intelligence,4,100
+Metallurgy,2024,7,SUB602,Advanced Algorithms,4,100
+Metallurgy,2024,7,SUB603,Project Engineering,3,100
+Metallurgy,2024,8,SUB604,Professional Practice,3,100
+Metallurgy,2024,8,SUB605,Elective I,3,100
+Metallurgy,2024,8,SUB701,Major Project,8,100
+Metallurgy,2024,8,SUB702,Seminar,2,100
+ECE,2024,1,SUB101,Programming Fundamentals,4,100
+ECE,2024,1,SUB102,Engineering Mathematics,4,100
+ECE,2024,1,SUB103,Engineering Physics,3,100
+ECE,2024,1,SUB104,Digital Fundamentals,3,100
+ECE,2024,2,SUB105,Communication Skills,2,100
+ECE,2024,2,SUB201,Data Structures,4,100
+ECE,2024,2,SUB202,Database Systems,4,100
+ECE,2024,2,SUB203,Computer Networks,4,100
+ECE,2024,3,SUB204,Operating Systems,4,100
+ECE,2024,3,SUB205,Discrete Mathematics,3,100
+ECE,2024,3,SUB301,Software Engineering,4,100
+ECE,2024,3,SUB302,Computer Architecture,4,100
+ECE,2024,4,SUB303,Web Technologies,3,100
+ECE,2024,4,SUB304,Probability and Statistics,3,100
+ECE,2024,4,SUB305,Technical Writing,2,100
+ECE,2024,4,SUB401,Machine Learning,4,100
+ECE,2024,5,SUB402,Distributed Systems,4,100
+ECE,2024,5,SUB403,Information Security,3,100
+ECE,2024,5,SUB404,Cloud Computing,3,100
+ECE,2024,5,SUB405,Management Fundamentals,2,100
+ECE,2024,6,SUB501,Deep Learning,4,100
+ECE,2024,6,SUB502,Big Data Analytics,4,100
+ECE,2024,6,SUB503,Mobile Computing,3,100
+ECE,2024,6,SUB504,Advanced Databases,3,100
+ECE,2024,7,SUB505,Entrepreneurship,2,100
+ECE,2024,7,SUB601,Artificial Intelligence,4,100
+ECE,2024,7,SUB602,Advanced Algorithms,4,100
+ECE,2024,7,SUB603,Project Engineering,3,100
+ECE,2024,8,SUB604,Professional Practice,3,100
+ECE,2024,8,SUB605,Elective I,3,100
+ECE,2024,8,SUB701,Major Project,8,100
+ECE,2024,8,SUB702,Seminar,2,100
+EEE,2024,1,SUB101,Programming Fundamentals,4,100
+EEE,2024,1,SUB102,Engineering Mathematics,4,100
+EEE,2024,1,SUB103,Engineering Physics,3,100
+EEE,2024,1,SUB104,Digital Fundamentals,3,100
+EEE,2024,2,SUB105,Communication Skills,2,100
+EEE,2024,2,SUB201,Data Structures,4,100
+EEE,2024,2,SUB202,Database Systems,4,100
+EEE,2024,2,SUB203,Computer Networks,4,100
+EEE,2024,3,SUB204,Operating Systems,4,100
+EEE,2024,3,SUB205,Discrete Mathematics,3,100
+EEE,2024,3,SUB301,Software Engineering,4,100
+EEE,2024,3,SUB302,Computer Architecture,4,100
+EEE,2024,4,SUB303,Web Technologies,3,100
+EEE,2024,4,SUB304,Probability and Statistics,3,100
+EEE,2024,4,SUB305,Technical Writing,2,100
+EEE,2024,4,SUB401,Machine Learning,4,100
+EEE,2024,5,SUB402,Distributed Systems,4,100
+EEE,2024,5,SUB403,Information Security,3,100
+EEE,2024,5,SUB404,Cloud Computing,3,100
+EEE,2024,5,SUB405,Management Fundamentals,2,100
+EEE,2024,6,SUB501,Deep Learning,4,100
+EEE,2024,6,SUB502,Big Data Analytics,4,100
+EEE,2024,6,SUB503,Mobile Computing,3,100
+EEE,2024,6,SUB504,Advanced Databases,3,100
+EEE,2024,7,SUB505,Entrepreneurship,2,100
+EEE,2024,7,SUB601,Artificial Intelligence,4,100
+EEE,2024,7,SUB602,Advanced Algorithms,4,100
+EEE,2024,7,SUB603,Project Engineering,3,100
+EEE,2024,8,SUB604,Professional Practice,3,100
+EEE,2024,8,SUB605,Elective I,3,100
+EEE,2024,8,SUB701,Major Project,8,100
+EEE,2024,8,SUB702,Seminar,2,100
+CDS,2024,1,SUB101,Programming Fundamentals,4,100
+CDS,2024,1,SUB102,Engineering Mathematics,4,100
+CDS,2024,1,SUB103,Engineering Physics,3,100
+CDS,2024,1,SUB104,Digital Fundamentals,3,100
+CDS,2024,2,SUB105,Communication Skills,2,100
+CDS,2024,2,SUB201,Data Structures,4,100
+CDS,2024,2,SUB202,Database Systems,4,100
+CDS,2024,2,SUB203,Computer Networks,4,100
+CDS,2024,3,SUB204,Operating Systems,4,100
+CDS,2024,3,SUB205,Discrete Mathematics,3,100
+CDS,2024,3,SUB301,Software Engineering,4,100
+CDS,2024,3,SUB302,Computer Architecture,4,100
+CDS,2024,4,SUB303,Web Technologies,3,100
+CDS,2024,4,SUB304,Probability and Statistics,3,100
+CDS,2024,4,SUB305,Technical Writing,2,100
+CDS,2024,4,SUB401,Machine Learning,4,100
+CDS,2024,5,SUB402,Distributed Systems,4,100
+CDS,2024,5,SUB403,Information Security,3,100
+CDS,2024,5,SUB404,Cloud Computing,3,100
+CDS,2024,5,SUB405,Management Fundamentals,2,100
+CDS,2024,6,SUB501,Deep Learning,4,100
+CDS,2024,6,SUB502,Big Data Analytics,4,100
+CDS,2024,6,SUB503,Mobile Computing,3,100
+CDS,2024,6,SUB504,Advanced Databases,3,100
+CDS,2024,7,SUB505,Entrepreneurship,2,100
+CDS,2024,7,SUB601,Artificial Intelligence,4,100
+CDS,2024,7,SUB602,Advanced Algorithms,4,100
+CDS,2024,7,SUB603,Project Engineering,3,100
+CDS,2024,8,SUB604,Professional Practice,3,100
+CDS,2024,8,SUB605,Elective I,3,100
+CDS,2024,8,SUB701,Major Project,8,100
+CDS,2024,8,SUB702,Seminar,2,100
+CS,2025,1,SUB101,Programming Fundamentals,4,100
+CS,2025,1,SUB102,Engineering Mathematics,4,100
+CS,2025,1,SUB103,Engineering Physics,3,100
+CS,2025,1,SUB104,Digital Fundamentals,3,100
+CS,2025,2,SUB105,Communication Skills,2,100
+CS,2025,2,SUB201,Data Structures,4,100
+CS,2025,2,SUB202,Database Systems,4,100
+CS,2025,2,SUB203,Computer Networks,4,100
+CS,2025,3,SUB204,Operating Systems,4,100
+CS,2025,3,SUB205,Discrete Mathematics,3,100
+CS,2025,3,SUB301,Software Engineering,4,100
+CS,2025,3,SUB302,Computer Architecture,4,100
+CS,2025,4,SUB303,Web Technologies,3,100
+CS,2025,4,SUB304,Probability and Statistics,3,100
+CS,2025,4,SUB305,Technical Writing,2,100
+CS,2025,4,SUB401,Machine Learning,4,100
+CS,2025,5,SUB402,Distributed Systems,4,100
+CS,2025,5,SUB403,Information Security,3,100
+CS,2025,5,SUB404,Cloud Computing,3,100
+CS,2025,5,SUB405,Management Fundamentals,2,100
+CS,2025,6,SUB501,Deep Learning,4,100
+CS,2025,6,SUB502,Big Data Analytics,4,100
+CS,2025,6,SUB503,Mobile Computing,3,100
+CS,2025,6,SUB504,Advanced Databases,3,100
+CS,2025,7,SUB505,Entrepreneurship,2,100
+CS,2025,7,SUB601,Artificial Intelligence,4,100
+CS,2025,7,SUB602,Advanced Algorithms,4,100
+CS,2025,7,SUB603,Project Engineering,3,100
+CS,2025,8,SUB604,Professional Practice,3,100
+CS,2025,8,SUB605,Elective I,3,100
+CS,2025,8,SUB701,Major Project,8,100
+CS,2025,8,SUB702,Seminar,2,100
+IT,2025,1,SUB101,Programming Fundamentals,4,100
+IT,2025,1,SUB102,Engineering Mathematics,4,100
+IT,2025,1,SUB103,Engineering Physics,3,100
+IT,2025,1,SUB104,Digital Fundamentals,3,100
+IT,2025,2,SUB105,Communication Skills,2,100
+IT,2025,2,SUB201,Data Structures,4,100
+IT,2025,2,SUB202,Database Systems,4,100
+IT,2025,2,SUB203,Computer Networks,4,100
+IT,2025,3,SUB204,Operating Systems,4,100
+IT,2025,3,SUB205,Discrete Mathematics,3,100
+IT,2025,3,SUB301,Software Engineering,4,100
+IT,2025,3,SUB302,Computer Architecture,4,100
+IT,2025,4,SUB303,Web Technologies,3,100
+IT,2025,4,SUB304,Probability and Statistics,3,100
+IT,2025,4,SUB305,Technical Writing,2,100
+IT,2025,4,SUB401,Machine Learning,4,100
+IT,2025,5,SUB402,Distributed Systems,4,100
+IT,2025,5,SUB403,Information Security,3,100
+IT,2025,5,SUB404,Cloud Computing,3,100
+IT,2025,5,SUB405,Management Fundamentals,2,100
+IT,2025,6,SUB501,Deep Learning,4,100
+IT,2025,6,SUB502,Big Data Analytics,4,100
+IT,2025,6,SUB503,Mobile Computing,3,100
+IT,2025,6,SUB504,Advanced Databases,3,100
+IT,2025,7,SUB505,Entrepreneurship,2,100
+IT,2025,7,SUB601,Artificial Intelligence,4,100
+IT,2025,7,SUB602,Advanced Algorithms,4,100
+IT,2025,7,SUB603,Project Engineering,3,100
+IT,2025,8,SUB604,Professional Practice,3,100
+IT,2025,8,SUB605,Elective I,3,100
+IT,2025,8,SUB701,Major Project,8,100
+IT,2025,8,SUB702,Seminar,2,100
+AI,2025,1,SUB101,Programming Fundamentals,4,100
+AI,2025,1,SUB102,Engineering Mathematics,4,100
+AI,2025,1,SUB103,Engineering Physics,3,100
+AI,2025,1,SUB104,Digital Fundamentals,3,100
+AI,2025,2,SUB105,Communication Skills,2,100
+AI,2025,2,SUB201,Data Structures,4,100
+AI,2025,2,SUB202,Database Systems,4,100
+AI,2025,2,SUB203,Computer Networks,4,100
+AI,2025,3,SUB204,Operating Systems,4,100
+AI,2025,3,SUB205,Discrete Mathematics,3,100
+AI,2025,3,SUB301,Software Engineering,4,100
+AI,2025,3,SUB302,Computer Architecture,4,100
+AI,2025,4,SUB303,Web Technologies,3,100
+AI,2025,4,SUB304,Probability and Statistics,3,100
+AI,2025,4,SUB305,Technical Writing,2,100
+AI,2025,4,SUB401,Machine Learning,4,100
+AI,2025,5,SUB402,Distributed Systems,4,100
+AI,2025,5,SUB403,Information Security,3,100
+AI,2025,5,SUB404,Cloud Computing,3,100
+AI,2025,5,SUB405,Management Fundamentals,2,100
+AI,2025,6,SUB501,Deep Learning,4,100
+AI,2025,6,SUB502,Big Data Analytics,4,100
+AI,2025,6,SUB503,Mobile Computing,3,100
+AI,2025,6,SUB504,Advanced Databases,3,100
+AI,2025,7,SUB505,Entrepreneurship,2,100
+AI,2025,7,SUB601,Artificial Intelligence,4,100
+AI,2025,7,SUB602,Advanced Algorithms,4,100
+AI,2025,7,SUB603,Project Engineering,3,100
+AI,2025,8,SUB604,Professional Practice,3,100
+AI,2025,8,SUB605,Elective I,3,100
+AI,2025,8,SUB701,Major Project,8,100
+AI,2025,8,SUB702,Seminar,2,100
+Mech,2025,1,SUB101,Programming Fundamentals,4,100
+Mech,2025,1,SUB102,Engineering Mathematics,4,100
+Mech,2025,1,SUB103,Engineering Physics,3,100
+Mech,2025,1,SUB104,Digital Fundamentals,3,100
+Mech,2025,2,SUB105,Communication Skills,2,100
+Mech,2025,2,SUB201,Data Structures,4,100
+Mech,2025,2,SUB202,Database Systems,4,100
+Mech,2025,2,SUB203,Computer Networks,4,100
+Mech,2025,3,SUB204,Operating Systems,4,100
+Mech,2025,3,SUB205,Discrete Mathematics,3,100
+Mech,2025,3,SUB301,Software Engineering,4,100
+Mech,2025,3,SUB302,Computer Architecture,4,100
+Mech,2025,4,SUB303,Web Technologies,3,100
+Mech,2025,4,SUB304,Probability and Statistics,3,100
+Mech,2025,4,SUB305,Technical Writing,2,100
+Mech,2025,4,SUB401,Machine Learning,4,100
+Mech,2025,5,SUB402,Distributed Systems,4,100
+Mech,2025,5,SUB403,Information Security,3,100
+Mech,2025,5,SUB404,Cloud Computing,3,100
+Mech,2025,5,SUB405,Management Fundamentals,2,100
+Mech,2025,6,SUB501,Deep Learning,4,100
+Mech,2025,6,SUB502,Big Data Analytics,4,100
+Mech,2025,6,SUB503,Mobile Computing,3,100
+Mech,2025,6,SUB504,Advanced Databases,3,100
+Mech,2025,7,SUB505,Entrepreneurship,2,100
+Mech,2025,7,SUB601,Artificial Intelligence,4,100
+Mech,2025,7,SUB602,Advanced Algorithms,4,100
+Mech,2025,7,SUB603,Project Engineering,3,100
+Mech,2025,8,SUB604,Professional Practice,3,100
+Mech,2025,8,SUB605,Elective I,3,100
+Mech,2025,8,SUB701,Major Project,8,100
+Mech,2025,8,SUB702,Seminar,2,100
+Civil,2025,1,SUB101,Programming Fundamentals,4,100
+Civil,2025,1,SUB102,Engineering Mathematics,4,100
+Civil,2025,1,SUB103,Engineering Physics,3,100
+Civil,2025,1,SUB104,Digital Fundamentals,3,100
+Civil,2025,2,SUB105,Communication Skills,2,100
+Civil,2025,2,SUB201,Data Structures,4,100
+Civil,2025,2,SUB202,Database Systems,4,100
+Civil,2025,2,SUB203,Computer Networks,4,100
+Civil,2025,3,SUB204,Operating Systems,4,100
+Civil,2025,3,SUB205,Discrete Mathematics,3,100
+Civil,2025,3,SUB301,Software Engineering,4,100
+Civil,2025,3,SUB302,Computer Architecture,4,100
+Civil,2025,4,SUB303,Web Technologies,3,100
+Civil,2025,4,SUB304,Probability and Statistics,3,100
+Civil,2025,4,SUB305,Technical Writing,2,100
+Civil,2025,4,SUB401,Machine Learning,4,100
+Civil,2025,5,SUB402,Distributed Systems,4,100
+Civil,2025,5,SUB403,Information Security,3,100
+Civil,2025,5,SUB404,Cloud Computing,3,100
+Civil,2025,5,SUB405,Management Fundamentals,2,100
+Civil,2025,6,SUB501,Deep Learning,4,100
+Civil,2025,6,SUB502,Big Data Analytics,4,100
+Civil,2025,6,SUB503,Mobile Computing,3,100
+Civil,2025,6,SUB504,Advanced Databases,3,100
+Civil,2025,7,SUB505,Entrepreneurship,2,100
+Civil,2025,7,SUB601,Artificial Intelligence,4,100
+Civil,2025,7,SUB602,Advanced Algorithms,4,100
+Civil,2025,7,SUB603,Project Engineering,3,100
+Civil,2025,8,SUB604,Professional Practice,3,100
+Civil,2025,8,SUB605,Elective I,3,100
+Civil,2025,8,SUB701,Major Project,8,100
+Civil,2025,8,SUB702,Seminar,2,100
+Chem,2025,1,SUB101,Programming Fundamentals,4,100
+Chem,2025,1,SUB102,Engineering Mathematics,4,100
+Chem,2025,1,SUB103,Engineering Physics,3,100
+Chem,2025,1,SUB104,Digital Fundamentals,3,100
+Chem,2025,2,SUB105,Communication Skills,2,100
+Chem,2025,2,SUB201,Data Structures,4,100
+Chem,2025,2,SUB202,Database Systems,4,100
+Chem,2025,2,SUB203,Computer Networks,4,100
+Chem,2025,3,SUB204,Operating Systems,4,100
+Chem,2025,3,SUB205,Discrete Mathematics,3,100
+Chem,2025,3,SUB301,Software Engineering,4,100
+Chem,2025,3,SUB302,Computer Architecture,4,100
+Chem,2025,4,SUB303,Web Technologies,3,100
+Chem,2025,4,SUB304,Probability and Statistics,3,100
+Chem,2025,4,SUB305,Technical Writing,2,100
+Chem,2025,4,SUB401,Machine Learning,4,100
+Chem,2025,5,SUB402,Distributed Systems,4,100
+Chem,2025,5,SUB403,Information Security,3,100
+Chem,2025,5,SUB404,Cloud Computing,3,100
+Chem,2025,5,SUB405,Management Fundamentals,2,100
+Chem,2025,6,SUB501,Deep Learning,4,100
+Chem,2025,6,SUB502,Big Data Analytics,4,100
+Chem,2025,6,SUB503,Mobile Computing,3,100
+Chem,2025,6,SUB504,Advanced Databases,3,100
+Chem,2025,7,SUB505,Entrepreneurship,2,100
+Chem,2025,7,SUB601,Artificial Intelligence,4,100
+Chem,2025,7,SUB602,Advanced Algorithms,4,100
+Chem,2025,7,SUB603,Project Engineering,3,100
+Chem,2025,8,SUB604,Professional Practice,3,100
+Chem,2025,8,SUB605,Elective I,3,100
+Chem,2025,8,SUB701,Major Project,8,100
+Chem,2025,8,SUB702,Seminar,2,100
+Metallurgy,2025,1,SUB101,Programming Fundamentals,4,100
+Metallurgy,2025,1,SUB102,Engineering Mathematics,4,100
+Metallurgy,2025,1,SUB103,Engineering Physics,3,100
+Metallurgy,2025,1,SUB104,Digital Fundamentals,3,100
+Metallurgy,2025,2,SUB105,Communication Skills,2,100
+Metallurgy,2025,2,SUB201,Data Structures,4,100
+Metallurgy,2025,2,SUB202,Database Systems,4,100
+Metallurgy,2025,2,SUB203,Computer Networks,4,100
+Metallurgy,2025,3,SUB204,Operating Systems,4,100
+Metallurgy,2025,3,SUB205,Discrete Mathematics,3,100
+Metallurgy,2025,3,SUB301,Software Engineering,4,100
+Metallurgy,2025,3,SUB302,Computer Architecture,4,100
+Metallurgy,2025,4,SUB303,Web Technologies,3,100
+Metallurgy,2025,4,SUB304,Probability and Statistics,3,100
+Metallurgy,2025,4,SUB305,Technical Writing,2,100
+Metallurgy,2025,4,SUB401,Machine Learning,4,100
+Metallurgy,2025,5,SUB402,Distributed Systems,4,100
+Metallurgy,2025,5,SUB403,Information Security,3,100
+Metallurgy,2025,5,SUB404,Cloud Computing,3,100
+Metallurgy,2025,5,SUB405,Management Fundamentals,2,100
+Metallurgy,2025,6,SUB501,Deep Learning,4,100
+Metallurgy,2025,6,SUB502,Big Data Analytics,4,100
+Metallurgy,2025,6,SUB503,Mobile Computing,3,100
+Metallurgy,2025,6,SUB504,Advanced Databases,3,100
+Metallurgy,2025,7,SUB505,Entrepreneurship,2,100
+Metallurgy,2025,7,SUB601,Artificial Intelligence,4,100
+Metallurgy,2025,7,SUB602,Advanced Algorithms,4,100
+Metallurgy,2025,7,SUB603,Project Engineering,3,100
+Metallurgy,2025,8,SUB604,Professional Practice,3,100
+Metallurgy,2025,8,SUB605,Elective I,3,100
+Metallurgy,2025,8,SUB701,Major Project,8,100
+Metallurgy,2025,8,SUB702,Seminar,2,100
+ECE,2025,1,SUB101,Programming Fundamentals,4,100
+ECE,2025,1,SUB102,Engineering Mathematics,4,100
+ECE,2025,1,SUB103,Engineering Physics,3,100
+ECE,2025,1,SUB104,Digital Fundamentals,3,100
+ECE,2025,2,SUB105,Communication Skills,2,100
+ECE,2025,2,SUB201,Data Structures,4,100
+ECE,2025,2,SUB202,Database Systems,4,100
+ECE,2025,2,SUB203,Computer Networks,4,100
+ECE,2025,3,SUB204,Operating Systems,4,100
+ECE,2025,3,SUB205,Discrete Mathematics,3,100
+ECE,2025,3,SUB301,Software Engineering,4,100
+ECE,2025,3,SUB302,Computer Architecture,4,100
+ECE,2025,4,SUB303,Web Technologies,3,100
+ECE,2025,4,SUB304,Probability and Statistics,3,100
+ECE,2025,4,SUB305,Technical Writing,2,100
+ECE,2025,4,SUB401,Machine Learning,4,100
+ECE,2025,5,SUB402,Distributed Systems,4,100
+ECE,2025,5,SUB403,Information Security,3,100
+ECE,2025,5,SUB404,Cloud Computing,3,100
+ECE,2025,5,SUB405,Management Fundamentals,2,100
+ECE,2025,6,SUB501,Deep Learning,4,100
+ECE,2025,6,SUB502,Big Data Analytics,4,100
+ECE,2025,6,SUB503,Mobile Computing,3,100
+ECE,2025,6,SUB504,Advanced Databases,3,100
+ECE,2025,7,SUB505,Entrepreneurship,2,100
+ECE,2025,7,SUB601,Artificial Intelligence,4,100
+ECE,2025,7,SUB602,Advanced Algorithms,4,100
+ECE,2025,7,SUB603,Project Engineering,3,100
+ECE,2025,8,SUB604,Professional Practice,3,100
+ECE,2025,8,SUB605,Elective I,3,100
+ECE,2025,8,SUB701,Major Project,8,100
+ECE,2025,8,SUB702,Seminar,2,100
+EEE,2025,1,SUB101,Programming Fundamentals,4,100
+EEE,2025,1,SUB102,Engineering Mathematics,4,100
+EEE,2025,1,SUB103,Engineering Physics,3,100
+EEE,2025,1,SUB104,Digital Fundamentals,3,100
+EEE,2025,2,SUB105,Communication Skills,2,100
+EEE,2025,2,SUB201,Data Structures,4,100
+EEE,2025,2,SUB202,Database Systems,4,100
+EEE,2025,2,SUB203,Computer Networks,4,100
+EEE,2025,3,SUB204,Operating Systems,4,100
+EEE,2025,3,SUB205,Discrete Mathematics,3,100
+EEE,2025,3,SUB301,Software Engineering,4,100
+EEE,2025,3,SUB302,Computer Architecture,4,100
+EEE,2025,4,SUB303,Web Technologies,3,100
+EEE,2025,4,SUB304,Probability and Statistics,3,100
+EEE,2025,4,SUB305,Technical Writing,2,100
+EEE,2025,4,SUB401,Machine Learning,4,100
+EEE,2025,5,SUB402,Distributed Systems,4,100
+EEE,2025,5,SUB403,Information Security,3,100
+EEE,2025,5,SUB404,Cloud Computing,3,100
+EEE,2025,5,SUB405,Management Fundamentals,2,100
+EEE,2025,6,SUB501,Deep Learning,4,100
+EEE,2025,6,SUB502,Big Data Analytics,4,100
+EEE,2025,6,SUB503,Mobile Computing,3,100
+EEE,2025,6,SUB504,Advanced Databases,3,100
+EEE,2025,7,SUB505,Entrepreneurship,2,100
+EEE,2025,7,SUB601,Artificial Intelligence,4,100
+EEE,2025,7,SUB602,Advanced Algorithms,4,100
+EEE,2025,7,SUB603,Project Engineering,3,100
+EEE,2025,8,SUB604,Professional Practice,3,100
+EEE,2025,8,SUB605,Elective I,3,100
+EEE,2025,8,SUB701,Major Project,8,100
+EEE,2025,8,SUB702,Seminar,2,100
+CDS,2025,1,SUB101,Programming Fundamentals,4,100
+CDS,2025,1,SUB102,Engineering Mathematics,4,100
+CDS,2025,1,SUB103,Engineering Physics,3,100
+CDS,2025,1,SUB104,Digital Fundamentals,3,100
+CDS,2025,2,SUB105,Communication Skills,2,100
+CDS,2025,2,SUB201,Data Structures,4,100
+CDS,2025,2,SUB202,Database Systems,4,100
+CDS,2025,2,SUB203,Computer Networks,4,100
+CDS,2025,3,SUB204,Operating Systems,4,100
+CDS,2025,3,SUB205,Discrete Mathematics,3,100
+CDS,2025,3,SUB301,Software Engineering,4,100
+CDS,2025,3,SUB302,Computer Architecture,4,100
+CDS,2025,4,SUB303,Web Technologies,3,100
+CDS,2025,4,SUB304,Probability and Statistics,3,100
+CDS,2025,4,SUB305,Technical Writing,2,100
+CDS,2025,4,SUB401,Machine Learning,4,100
+CDS,2025,5,SUB402,Distributed Systems,4,100
+CDS,2025,5,SUB403,Information Security,3,100
+CDS,2025,5,SUB404,Cloud Computing,3,100
+CDS,2025,5,SUB405,Management Fundamentals,2,100
+CDS,2025,6,SUB501,Deep Learning,4,100
+CDS,2025,6,SUB502,Big Data Analytics,4,100
+CDS,2025,6,SUB503,Mobile Computing,3,100
+CDS,2025,6,SUB504,Advanced Databases,3,100
+CDS,2025,7,SUB505,Entrepreneurship,2,100
+CDS,2025,7,SUB601,Artificial Intelligence,4,100
+CDS,2025,7,SUB602,Advanced Algorithms,4,100
+CDS,2025,7,SUB603,Project Engineering,3,100
+CDS,2025,8,SUB604,Professional Practice,3,100
+CDS,2025,8,SUB605,Elective I,3,100
+CDS,2025,8,SUB701,Major Project,8,100
+CDS,2025,8,SUB702,Seminar,2,100
