@@ -139,7 +139,7 @@ st.set_page_config(
 )
 
 
-model = joblib.load("linear_regression_pipeline.pkl")
+model = joblib.load("best_marks_prediction_pipeline.pkl")
 preprocessor = joblib.load("preprocessor_linear.pkl")
 residual_std=joblib.load("residual_std.pkl")
 model_metrics = joblib.load("model_metrics.pkl")

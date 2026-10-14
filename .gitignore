@@ -1,3 +1,14 @@
+academic_records.csv
+academic_records_5_years_rescaled.csv
+error_by_mark_range.csv
+linear_regression_model.pkl
+linear_regression_pipeline.pkl
+performance_results.csv
+prediction_error.pkl
+preprocessor_linear.pkl
+residual_std.pkl
+semester_results.csv
+
 # macOS and editor files
 .DS_Store
 .vscode/
