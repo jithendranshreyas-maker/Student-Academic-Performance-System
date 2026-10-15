@@ -3,18 +3,34 @@ import bcrypt
 import mysql.connector
 import streamlit as st
 from dotenv import load_dotenv
+from urllib.parse import urlparse, unquote
 
 load_dotenv()
 
 
 def get_connection():
+mysql_url = os.getenv("MYSQL_URL")
+
+if mysql_url:
+    db = urlparse(mysql_url)
+
     return mysql.connector.connect(
-        host=os.getenv("DB_HOST", "127.0.0.1"),
-        port=3306,
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME", "Project_2")
+        host=db.hostname,
+        port=db.port or 3306,
+        user=unquote(db.username) if db.username else None,
+        password=unquote(db.password) if db.password else None,
+        database=unquote(db.path.lstrip("/")) if db.path else None,
+        connection_timeout=10
     )
+
+return mysql.connector.connect(
+    host=os.getenv("DB_HOST", "127.0.0.1"),
+    port=int(os.getenv("DB_PORT", "3306")),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME", "Project_2"),
+    connection_timeout=10
+)
 
 
 
