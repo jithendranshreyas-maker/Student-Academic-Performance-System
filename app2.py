@@ -6,9 +6,10 @@ import plotly.graph_objects as go
 import joblib
 import numpy as np
 import bcrypt
-from auth import login, signup_student
+from auth import login, signup_student, get_connection
 import os
 from urllib.parse import urlparse, unquote
+
 
 from dotenv import load_dotenv
 
@@ -653,26 +654,8 @@ with st.sidebar:
 
 # ---------------- DATABASE CONNECTION ----------------
 
-mysql_url = os.getenv("MYSQL_URL")
 
-if mysql_url:
-    db = urlparse(mysql_url)
-
-    con = mysql.connector.connect(
-        host=db.hostname,
-        port=db.port or 3306,
-        user=unquote(db.username) if db.username else None,
-        password=unquote(db.password) if db.password else None,
-        database=unquote(db.path.lstrip("/")) if db.path else None
-    )
-else:
-    con = mysql.connector.connect(
-        host=os.getenv("DB_HOST", "127.0.0.1"),
-        port=int(os.getenv("DB_PORT", "3306")),
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME", "Project_2")
-    )
+con = get_connection()
 
 cursor = con.cursor()
 
