@@ -10,7 +10,6 @@ from auth import login, signup_student, get_connection
 import os
 from urllib.parse import urlparse, unquote
 
-
 from dotenv import load_dotenv
 
 load_dotenv()
