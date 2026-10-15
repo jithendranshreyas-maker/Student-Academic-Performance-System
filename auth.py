@@ -8,6 +8,7 @@ from urllib.parse import urlparse, unquote
 load_dotenv()
 
 
+
 def get_connection():
     if "database" in st.secrets:
         db = st.secrets["database"]
@@ -21,13 +22,16 @@ def get_connection():
         )
 
     return mysql.connector.connect(
-        host=os.getenv("DB_HOST", "127.0.0.1"),
-        port=int(os.getenv("DB_PORT", "3306")),
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME", "Project_2"),
+        host=os.getenv("MYSQLHOST", os.getenv("DB_HOST", "127.0.0.1")),
+        port=int(os.getenv("MYSQLPORT", os.getenv("DB_PORT", "3306"))),
+        user=os.getenv("MYSQLUSER", os.getenv("DB_USER")),
+        password=os.getenv("MYSQLPASSWORD", os.getenv("DB_PASSWORD")),
+        database=os.getenv("MYSQLDATABASE", os.getenv("DB_NAME", "Project_2")),
         connection_timeout=10
     )
+        connection_timeout=10
+    )
+
 
 
 
