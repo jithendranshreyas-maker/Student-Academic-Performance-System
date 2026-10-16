@@ -6534,6 +6534,8 @@ if page == "Backlog Tracker":
         file_name="backlog_report.csv",
         mime="text/csv"
     )
+
+
 if page == "Prediction Validation":
     st.subheader("Prediction Validation & Feedback")
 
@@ -6625,16 +6627,19 @@ if page == "Prediction Validation":
         )
 
         # Prediction validation form
+
         if show_validation_form:
             st.divider()
             st.subheader("Validate an Individual Prediction")
 
             pending_predictions = filtered_predictions_df[
-                filtered_predictions_df["Validation Status"] == "Pending Validation"
+                filtered_predictions_df["Validation Status"]
+                == "Pending Validation"
             ]
 
             if pending_predictions.empty:
                 st.info("No pending predictions available for validation.")
+
             else:
                 selected_prediction = st.selectbox(
                     "Select Prediction ID",
@@ -6642,46 +6647,36 @@ if page == "Prediction Validation":
                     key="validation_prediction_select"
                 )
 
-            selected_row = pending_predictions[
-                pending_predictions["prediction_id"] == selected_prediction
-            ].iloc[0]
+                selected_row = pending_predictions[
+                    pending_predictions["prediction_id"]
+                    == selected_prediction
+                ].iloc[0]
 
-            prediction_id = int(selected_row["prediction_id"])
+                prediction_id = int(selected_row["prediction_id"])
 
-            st.write(f"**Student ID:** {selected_row['student_id']}")
-            st.write(
-                f"**Subject:** {selected_row['subject_code']} — "
-                f"{selected_row['subject_name']}"
-            )
-            st.write(
-                f"**Prediction Type:** {selected_row['prediction_type']}"
-            )
-            st.write(
-                f"**Predicted Marks:** {selected_row['predicted_marks']}"
-            )
-            st.write(
-                f"**Predicted Grade:** {selected_row['predicted_grade']}"
-            )
-            st.write(
-                f"**Validation Status:** {selected_row['Validation Status']}"
-            )
-
-            if selected_row["Validation Status"] == "Validated":
-                st.warning(
-                    "This prediction has already been validated. "
-                    "Avoid submitting duplicate feedback."
+                st.write(f"**Student ID:** {selected_row['student_id']}")
+                st.write(
+                    f"**Subject:** {selected_row['subject_code']} — "
+                    f"{selected_row['subject_name']}"
+                )
+                st.write(
+                    f"**Prediction Type:** {selected_row['prediction_type']}"
+                )
+                st.write(
+                    f"**Predicted Marks:** {selected_row['predicted_marks']}"
+                )
+                st.write(
+                    f"**Predicted Grade:** {selected_row['predicted_grade']}"
                 )
 
-            else:
-                with st.form(
-                    key=f"validation_form_{prediction_id}"
-                ):
+                with st.form(key=f"validation_form_{prediction_id}"):
                     actual_marks = st.number_input(
                         "Actual Final Marks",
                         min_value=0.0,
                         max_value=100.0,
-                        value=0.0,
-                        step=0.5
+                        value=50.0,
+                        step=0.5,
+                        key=f"actual_marks_{prediction_id}"
                     )
 
                     grade_options = [
@@ -6689,15 +6684,17 @@ if page == "Prediction Validation":
                         "CD", "DD", "FF", "FA"
                     ]
 
-                    actual_grade = st.radio(
-                        "Actual Final Grade — select one",
-                        options=grade_options,
-                        index=None
+                    actual_grade = st.selectbox(
+                        "Actual Final Grade",
+                        options=["Select a grade"] + grade_options,
+                        index=0,
+                        key=f"actual_grade_{prediction_id}"
                     )
 
                     feedback_notes = st.text_area(
                         "Feedback Notes",
-                        placeholder="Optional observations about the prediction"
+                        placeholder="Optional observations about the prediction",
+                        key=f"feedback_notes_{prediction_id}"
                     )
 
                     confirm_validation = st.checkbox(
@@ -6705,56 +6702,21 @@ if page == "Prediction Validation":
                         key=f"confirm_validation_{prediction_id}"
                     )
 
-                    save_validation = st.form_submit_button("Save Validation")
-    
-                    if save_validation:
-                        if not confirm_validation:
-                            st.warning(
-                                "Please confirm the actual marks and grade."
-                            )
+                    save_validation = st.form_submit_button(
+                        "Save Validation"
+                    )
 
-                        elif actual_grade is None:
-                            st.warning(
-                                "Please select the actual final grade."
-                            )
+                if save_validation:
+                    if not confirm_validation:
+                        st.warning("Please confirm the actual marks and grade.")
 
-                        else:
-                            absolute_error = abs(
-                                float(selected_row["predicted_marks"])
-                                - float(actual_marks)
-                            )
-
-                            try:
-                                cursor.execute(
-                                    """
-                                    SELECT COUNT(*)
-                                    FROM prediction_feedback
-                                    WHERE prediction_id = %s
-                                    """,
-                                    (prediction_id,)
-                                )
-
-                                existing_count = cursor.fetchone()[0]
-
-                                if existing_count > 0:
-                                    st.warning(
-                                        "This prediction already has a feedback "
-                                        "record. Please review it before changing it."
-                                    )
-
-                                else:
-                                    st.warning(
-                                        "Validation saving is temporarily disabled while this issue is fixed."
-                                    )
-
-                        st.warning(
-                            "Please select the actual final grade."
-                        )
+                    elif actual_grade == "Select a grade":
+                        st.warning("Please select the actual final grade.")
 
                     else:
                         absolute_error = abs(
                             float(selected_row["predicted_marks"])
-                            - actual_marks
+                            - float(actual_marks)
                         )
 
                         try:
@@ -6771,8 +6733,11 @@ if page == "Prediction Validation":
 
                             if existing_count > 0:
                                 st.warning(
-                                    "This prediction already has a feedback record."
+                                    "This prediction already has a feedback "
+                                    "record. Refresh the page and select a "
+                                    "pending prediction."
                                 )
+
                             else:
                                 cursor.execute(
                                     """
@@ -6798,7 +6763,7 @@ if page == "Prediction Validation":
                                 con.commit()
 
                                 st.success(
-                                    f"Validation saved successfully. "
+                                    "Validation saved successfully. "
                                     f"Absolute error: {absolute_error:.2f} marks."
                                 )
 
@@ -6807,6 +6772,7 @@ if page == "Prediction Validation":
                         except Exception as e:
                             con.rollback()
                             st.error(f"Could not save validation: {e}")
+
     # Validation results
     if show_validation_results:
         st.divider()
