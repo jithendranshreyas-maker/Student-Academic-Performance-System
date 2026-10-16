@@ -892,6 +892,46 @@ if page == "Student Dashboard":
     student_ids = students_df["student_id"].tolist()
     selected_student = st.selectbox("Select Student", student_ids)
 
+
+    validated_query = """
+        SELECT
+            p.prediction_id,
+            p.student_id,
+            c.subject_code,
+            c.subject_name,
+            pf.actual_marks,
+            c.maximum_marks,
+            pf.actual_grade,
+            pf.feedback_date AS validation_date
+        FROM prediction_feedback pf
+        INNER JOIN predictions p
+            ON pf.prediction_id = p.prediction_id
+        LEFT JOIN curriculum c
+            ON p.subject_id = c.subject_id
+        WHERE p.student_id = %s
+        ORDER BY pf.feedback_date DESC
+    """
+
+    validated_results = pd.read_sql(
+        validated_query,
+        con,
+        params=(str(selected_student),)
+    )
+
+    st.subheader("Validated Actual Marks")
+
+    if not validated_results.empty:
+        st.dataframe(
+            validated_results.drop(
+                columns=["prediction_id", "student_id"]
+            ),
+            use_container_width=True,
+            hide_index=True
+        )
+    else:
+        st.info("No validated actual marks are available for this student yet.")
+
+
     student_row = students_df.loc[
         students_df["student_id"].astype(str) == str(selected_student)
     ]
@@ -6658,8 +6698,69 @@ if page == "Prediction Validation":
                         "Save Validation"
                     )
 
-                if save_validation:
-                    if actual_grade is None:
+
+                    if save_validation:
+                        if actual_grade is None:
+                            st.warning("Please select the actual final grade.")
+
+                        elif not 0 <= actual_marks <= 100:
+                            st.warning("Actual marks must be between 0 and 100.")
+
+                        else:
+                            absolute_error = abs(
+                                float(selected_row["predicted_marks"])
+                                - actual_marks
+                            )
+
+                            try:
+                                cursor.execute(
+                                    """
+                                    SELECT COUNT(*)
+                                    FROM prediction_feedback
+                                    WHERE prediction_id = %s
+                                    """,
+                                    (prediction_id,)
+                                )
+                                existing_count = cursor.fetchone()[0]
+
+                                if existing_count > 0:
+                                    st.warning(
+                                        "This prediction has already been validated."
+                                    )
+                                else:
+                                    cursor.execute(
+                                        """
+                                        INSERT INTO prediction_feedback
+                                        (
+                                            prediction_id,
+                                            actual_marks,
+                                            actual_grade,
+                                            absolute_error,
+                                            feedback_notes
+                                        )
+                                        VALUES (%s, %s, %s, %s, %s)
+                                        """,
+                                        (
+                                            prediction_id,
+                                            actual_marks,
+                                            actual_grade,
+                                            absolute_error,
+                                            feedback_notes
+                                        )
+                                    )
+
+                                    con.commit()
+
+                                    st.success(
+                                        "Validation saved successfully. "
+                                        f"Absolute error: {absolute_error:.2f} marks."
+                                    )
+                                    st.rerun()
+
+                            except Exception as e:
+                                con.rollback()
+                                st.error(f"Could not save validation: {e}")
+
                         st.warning(
                             "Please select the actual final grade."
                         )
