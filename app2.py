@@ -868,6 +868,7 @@ if page == "Student Dashboard":
     selected_student = st.selectbox("Select Student", student_ids,    key="dashboard_student_select"
     )
 
+    st.write("Selected student ID:", repr(selected_student))
 
     validated_query = """
         SELECT
