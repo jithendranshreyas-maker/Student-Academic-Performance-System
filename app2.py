@@ -374,6 +374,7 @@ with st.sidebar:
 # ---------------- NAVIGATION ----------------
 
 admin_pages = [
+    "Admin Dashboard",
     "Student Dashboard",
     "Prediction Dashboard",
     "Student Performance",
@@ -398,7 +399,10 @@ student_pages = [
 pages = admin_pages if role == "admin" else student_pages
 
 if "page" not in st.session_state:
-    st.session_state.page = "Student Dashboard"
+    st.session_state.page = (
+        "Admin Dashboard" if role == "admin"
+        else "Student Dashboard"
+    )
 
 if st.session_state.page not in pages:
     st.session_state.page = "Student Dashboard"
@@ -487,15 +491,119 @@ if role != "admin" and page in admin_only_pages:
 
 with st.sidebar:
 
+    con = get_connection()
+
+    cursor = con.cursor()
+
+    if page == "Admin Dashboard" and role == "admin":
+        st.title("Admin Dashboard")
+        st.write("Welcome to the Student Academic Performance System.")
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        cursor.execute("SELECT COUNT(*) FROM students")
+        total_students = cursor.fetchone()[0]
+        col1.metric("Total Students", total_students)
+
+        try:
+            cursor.execute("""
+                SELECT COUNT(*) FROM user_accounts
+                WHERE is_active = 1
+            """)
+            active_accounts = cursor.fetchone()[0]
+            col2.metric("Active Accounts", active_accounts)
+
+            cursor.execute("SELECT COUNT(*) FROM predictions")
+            total_predictions = cursor.fetchone()[0]
+            col3.metric("Subject Predictions", total_predictions)
+
+            cursor.execute(
+                "SELECT COUNT(*) FROM overall_prediction_history"
+            )
+            total_overall = cursor.fetchone()[0]
+            col4.metric("Overall Predictions", total_overall)
+
+        except Exception as e:
+            st.error(f"Could not load dashboard statistics: {e}")
+
+        st.subheader("Registered Students")
+
+        cursor.execute("""
+            SELECT student_id, name, branch, current_year, current_semester
+            FROM students
+            ORDER BY student_id
+        """)
+
+        admin_students_df = pd.DataFrame(
+            cursor.fetchall(),
+            columns=[column[0] for column in cursor.description]
+        )
+
+        if not admin_students_df.empty:
+            st.dataframe(
+                admin_students_df,
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.info("No students are registered yet.")
+
+
+  
     if page == "Student Dashboard":
         st.markdown("#### Dashboard Sections")
 
-        show_overview = st.checkbox("Overview", value=True)
-        show_student_info = st.checkbox("Student Information", value=False)
-        show_academic = st.checkbox("Academic Performance", value=False)
-        show_semester = st.checkbox("Semester Performance", value=False)
-        show_sga = st.checkbox("SGA Trend", value=False)
-        show_attendance = st.checkbox("Attendance", value=False)
+        show_overview = st.checkbox(
+            "Overview", value=True, key="sd_overview"
+        )
+        show_student_info = st.checkbox(
+            "Student Information", value=False, key="sd_student_info"
+        )
+        show_academic = st.checkbox(
+            "Academic Performance", value=False, key="sd_academic"
+        )
+        show_semester = st.checkbox(
+            "Semester Performance", value=False, key="sd_semester"
+        )
+        show_sga = st.checkbox(
+            "SGA Trend", value=False, key="sd_sga"
+        )
+        show_attendance = st.checkbox(
+            "Attendance", value=False, key="sd_attendance"
+        )
+
+    elif page == "Student Academic Details":
+        st.markdown("#### Academic Details Options")
+
+        show_academic_profile = st.checkbox(
+            "Academic Profile", value=True, key="sad_profile"
+        )
+        show_semester_records = st.checkbox(
+            "Semester Records", value=True, key="sad_semester_records"
+        )
+        show_subject_records = st.checkbox(
+            "Subject Records", value=True, key="sad_subject_records"
+        )
+
+    elif page == "Prediction Dashboard":
+        st.markdown("### Prediction Options")
+
+        show_overall_predictions = st.checkbox(
+            "Overall Academic Predictions",
+            value=True,
+            key="pd_overall_predictions"
+        )
+        show_subject_predictions = st.checkbox(
+            "Individual Subject Predictions",
+            value=True,
+            key="pd_subject_predictions"
+        )
+        show_prediction_history = st.checkbox(
+            "Prediction History",
+            value=True,
+            key="pd_prediction_history"
+        )
+
 
     elif page == "Student Performance":
         st.markdown("### Performance Options")
@@ -650,6 +758,8 @@ with st.sidebar:
             "Prediction Validation Results", value=True,
             key="show_validation_results"
         )
+    
+
 
 # ---------------- DATABASE CONNECTION ----------------
 
@@ -907,8 +1017,12 @@ if page == "Student Dashboard":
     )
 
 
-if page == "Prediction Dashboard":
+
+
+
+elif page == "Prediction Dashboard":
     st.title("Prediction Dashboard")
+
     st.caption(
         "Review saved individual-subject predictions and overall academic predictions. "
         "Generating predictions remains available on the existing prediction pages."
@@ -953,137 +1067,140 @@ if page == "Prediction Dashboard":
             st.session_state.page = "Individual Subject Prediction"
             st.rerun()
 
-    st.subheader("Saved Overall Academic Predictions")
-    try:
-        overall_history_df = pd.read_sql(
-            """
-            SELECT
-                prediction_id,
-                academic_year,
-                semester,
-                predicted_sga,
-                estimated_cg,
-                predicted_backlog_count,
-                backlog_risk,
-                performance_category,
-                overall_academic_risk
-            FROM overall_prediction_history
-            WHERE student_id = %s
-            ORDER BY prediction_id DESC
-            """,
-            con,
-            params=(prediction_student,)
-        )
-
-        if overall_history_df.empty:
-            st.info("No saved overall academic predictions found for this student.")
-        else:
-            latest_overall = overall_history_df.iloc[0]
-            m1, m2, m3, m4 = st.columns(4)
-            m1.metric("Predicted SGA", f"{float(latest_overall['predicted_sga'] or 0):.2f}")
-            m2.metric("Estimated CG", f"{float(latest_overall['estimated_cg'] or 0):.2f}")
-            m3.metric("Predicted Backlogs", int(latest_overall["predicted_backlog_count"] or 0))
-            m4.metric("Backlog Risk", str(latest_overall["backlog_risk"] or "N/A"))
-
-            st.write(
-                f"**Latest prediction:** Academic Year {latest_overall['academic_year']}, "
-                f"Semester {latest_overall['semester']}"
-            )
-            st.write(f"**Performance Category:** {latest_overall['performance_category'] or 'N/A'}")
-            st.write(f"**Overall Academic Risk:** {latest_overall['overall_academic_risk'] or 'N/A'}")
-
-            st.markdown("#### Overall Prediction History")
-            st.dataframe(
-                overall_history_df.drop(columns=["prediction_id"]),
-                width="stretch",
-                hide_index=True
-            )
-
-            st.markdown("#### Predicted Subject Results")
-            latest_prediction_id = int(latest_overall["prediction_id"])
-            overall_subjects_df = pd.read_sql(
+    if show_overall_predictions:
+        st.subheader("Saved Overall Academic Predictions")
+        try:
+            overall_history_df = pd.read_sql(
                 """
                 SELECT
-                    subject_code,
-                    subject_name,
-                    credits,
-                    predicted_marks,
-                    estimated_grade,
-                    attendance_percentage,
+                    prediction_id,
+                    academic_year,
+                    semester,
+                    predicted_sga,
+                    estimated_cg,
+                    predicted_backlog_count,
                     backlog_risk,
-                    historical_average,
-                    performance_vs_history
-                FROM overall_prediction_subjects
-                WHERE prediction_id = %s
-                ORDER BY subject_code
+                    performance_category,
+                    overall_academic_risk
+                FROM overall_prediction_history
+                WHERE student_id = %s
+                ORDER BY prediction_id DESC
                 """,
                 con,
-                params=(latest_prediction_id,)
+                params=(prediction_student,)
             )
-            if overall_subjects_df.empty:
-                st.info("No subject-level results were saved for the latest overall prediction.")
+
+            if overall_history_df.empty:
+                st.info("No saved overall academic predictions found for this student.")
             else:
-                st.dataframe(overall_subjects_df, width="stretch", hide_index=True)
+                latest_overall = overall_history_df.iloc[0]
+                m1, m2, m3, m4 = st.columns(4)
+                m1.metric("Predicted SGA", f"{float(latest_overall['predicted_sga'] or 0):.2f}")
+                m2.metric("Estimated CG", f"{float(latest_overall['estimated_cg'] or 0):.2f}")
+                m3.metric("Predicted Backlogs", int(latest_overall["predicted_backlog_count"] or 0))
+                m4.metric("Backlog Risk", str(latest_overall["backlog_risk"] or "N/A"))
 
-    except Exception as overall_dashboard_error:
-        st.warning(
-            "Overall academic prediction history could not be loaded: "
-            f"{overall_dashboard_error}"
-        )
+                st.write(
+                    f"**Latest prediction:** Academic Year {latest_overall['academic_year']}, "
+                    f"Semester {latest_overall['semester']}"
+                )
+                st.write(f"**Performance Category:** {latest_overall['performance_category'] or 'N/A'}")
+                st.write(f"**Overall Academic Risk:** {latest_overall['overall_academic_risk'] or 'N/A'}")
 
-    st.divider()
-    st.subheader("Saved Individual Subject Predictions")
-    try:
-        saved_predictions_df = pd.read_sql(
-            """
-            SELECT
-                p.prediction_id,
-                c.subject_code,
-                c.subject_name,
-                p.prediction_type,
-                p.predicted_marks,
-                p.predicted_grade,
-                p.lower_bound,
-                p.upper_bound,
-                p.prediction_confidence,
-                p.created_at
-            FROM predictions p
-            LEFT JOIN curriculum c ON c.subject_id = p.subject_id
-            WHERE p.student_id = %s
-            ORDER BY p.created_at DESC, p.prediction_id DESC
-            """,
-            con,
-            params=(prediction_student,)
-        )
+                if show_prediction_history:
+                    st.markdown("#### Overall Prediction History")
+                    st.dataframe(
+                        overall_history_df.drop(columns=["prediction_id"]),
+                        width="stretch",
+                        hide_index=True
+                    )
 
-        if saved_predictions_df.empty:
-            st.info("No saved individual subject predictions found for this student.")
-        else:
-            st.dataframe(
-                saved_predictions_df.drop(columns=["prediction_id"]),
-                width="stretch",
-                hide_index=True
+                st.markdown("#### Predicted Subject Results")
+                latest_prediction_id = int(latest_overall["prediction_id"])
+                overall_subjects_df = pd.read_sql(
+                    """
+                    SELECT
+                        subject_code,
+                        subject_name,
+                        credits,
+                        predicted_marks,
+                        estimated_grade,
+                        attendance_percentage,
+                        backlog_risk,
+                        historical_average,
+                        performance_vs_history
+                    FROM overall_prediction_subjects
+                    WHERE prediction_id = %s
+                    ORDER BY subject_code
+                    """,
+                    con,
+                    params=(latest_prediction_id,)
+                )
+                if overall_subjects_df.empty:
+                    st.info("No subject-level results were saved for the latest overall prediction.")
+                else:
+                    st.dataframe(overall_subjects_df, width="stretch", hide_index=True)
+
+        except Exception as overall_dashboard_error:
+            st.warning(
+                "Overall academic prediction history could not be loaded: "
+                f"{overall_dashboard_error}"
             )
-            latest_subject_prediction = saved_predictions_df.iloc[0]
-            m1, m2, m3 = st.columns(3)
-            m1.metric(
-                "Latest Predicted Marks",
-                f"{float(latest_subject_prediction['predicted_marks'] or 0):.2f}"
+
+    if show_subject_predictions:
+        st.divider()
+        st.subheader("Saved Individual Subject Predictions")
+        try:
+            saved_predictions_df = pd.read_sql(
+                """
+                SELECT
+                    p.prediction_id,
+                    c.subject_code,
+                    c.subject_name,
+                    p.prediction_type,
+                    p.predicted_marks,
+                    p.predicted_grade,
+                    p.lower_bound,
+                    p.upper_bound,
+                    p.prediction_confidence,
+                    p.created_at
+                FROM predictions p
+                LEFT JOIN curriculum c ON c.subject_id = p.subject_id
+                WHERE p.student_id = %s
+                ORDER BY p.created_at DESC, p.prediction_id DESC
+                """,
+                con,
+                params=(prediction_student,)
             )
-            m2.metric(
-                "Latest Predicted Grade",
-                str(latest_subject_prediction["predicted_grade"] or "N/A")
+
+            if saved_predictions_df.empty:
+                st.info("No saved individual subject predictions found for this student.")
+            else:
+                st.dataframe(
+                    saved_predictions_df.drop(columns=["prediction_id"]),
+                    width="stretch",
+                    hide_index=True
+                )
+                latest_subject_prediction = saved_predictions_df.iloc[0]
+                m1, m2, m3 = st.columns(3)
+                m1.metric(
+                    "Latest Predicted Marks",
+                    f"{float(latest_subject_prediction['predicted_marks'] or 0):.2f}"
+                )
+                m2.metric(
+                    "Latest Predicted Grade",
+                    str(latest_subject_prediction["predicted_grade"] or "N/A")
+                )
+                confidence = latest_subject_prediction["prediction_confidence"]
+                m3.metric(
+                    "Prediction Confidence",
+                    f"{float(confidence):.1f}%" if pd.notna(confidence) else "N/A"
+                )
+        except Exception as subject_dashboard_error:
+            st.warning(
+                "Individual subject prediction history could not be loaded: "
+                f"{subject_dashboard_error}"
             )
-            confidence = latest_subject_prediction["prediction_confidence"]
-            m3.metric(
-                "Prediction Confidence",
-                f"{float(confidence):.1f}%" if pd.notna(confidence) else "N/A"
-            )
-    except Exception as subject_dashboard_error:
-        st.warning(
-            "Individual subject prediction history could not be loaded: "
-            f"{subject_dashboard_error}"
-        )
 
 
 if page == "Student Performance":
@@ -2103,7 +2220,12 @@ if page == "Overall Academic Prediction":
             )
 
             fig.add_vline(x=0, line_width=1, line_dash="dash")
-            st.plotly_chart(fig, width="stretch")
+            
+            st.bar_chart(
+                top_explanations.set_index("feature")["contribution"],
+                horizontal=True
+            )
+
 
             st.caption(
                 "Positive contributions push the model output upward; negative "
