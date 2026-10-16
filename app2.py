@@ -495,60 +495,6 @@ with st.sidebar:
 
     cursor = con.cursor()
 
-    if page == "Admin Dashboard" and role == "admin":
-        st.title("Admin Dashboard")
-        st.write("Welcome to the Student Academic Performance System.")
-
-        col1, col2, col3, col4 = st.columns(4)
-
-        cursor.execute("SELECT COUNT(*) FROM students")
-        total_students = cursor.fetchone()[0]
-        col1.metric("Total Students", total_students)
-
-        try:
-            cursor.execute("""
-                SELECT COUNT(*) FROM user_accounts
-                WHERE is_active = 1
-            """)
-            active_accounts = cursor.fetchone()[0]
-            col2.metric("Active Accounts", active_accounts)
-
-            cursor.execute("SELECT COUNT(*) FROM predictions")
-            total_predictions = cursor.fetchone()[0]
-            col3.metric("Subject Predictions", total_predictions)
-
-            cursor.execute(
-                "SELECT COUNT(*) FROM overall_prediction_history"
-            )
-            total_overall = cursor.fetchone()[0]
-            col4.metric("Overall Predictions", total_overall)
-
-        except Exception as e:
-            st.error(f"Could not load dashboard statistics: {e}")
-
-        st.subheader("Registered Students")
-
-        cursor.execute("""
-            SELECT student_id, name, branch, current_year, current_semester
-            FROM students
-            ORDER BY student_id
-        """)
-
-        admin_students_df = pd.DataFrame(
-            cursor.fetchall(),
-            columns=[column[0] for column in cursor.description]
-        )
-
-        if not admin_students_df.empty:
-            st.dataframe(
-                admin_students_df,
-                use_container_width=True,
-                hide_index=True
-            )
-        else:
-            st.info("No students are registered yet.")
-
-
   
     if page == "Student Dashboard":
         st.markdown("#### Dashboard Sections")
@@ -837,6 +783,58 @@ else:
         columns=[column[0] for column in cursor.description]
     )
 
+if page == "Admin Dashboard" and role == "admin":
+    st.title("Admin Dashboard")
+    st.write("Welcome to the Student Academic Performance System.")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    cursor.execute("SELECT COUNT(*) FROM students")
+    total_students = cursor.fetchone()[0]
+    col1.metric("Total Students", total_students)
+
+    try:
+        cursor.execute("""
+            SELECT COUNT(*) FROM user_accounts
+            WHERE is_active = 1
+        """)
+        active_accounts = cursor.fetchone()[0]
+        col2.metric("Active Accounts", active_accounts)
+
+        cursor.execute("SELECT COUNT(*) FROM predictions")
+        total_predictions = cursor.fetchone()[0]
+        col3.metric("Subject Predictions", total_predictions)
+
+        cursor.execute(
+            "SELECT COUNT(*) FROM overall_prediction_history"
+        )
+        total_overall = cursor.fetchone()[0]
+        col4.metric("Overall Predictions", total_overall)
+
+    except Exception as e:
+        st.error(f"Could not load dashboard statistics: {e}")
+
+    st.subheader("Registered Students")
+
+    cursor.execute("""
+        SELECT student_id, name, branch, current_year, current_semester
+        FROM students
+        ORDER BY student_id
+    """)
+
+    admin_students_df = pd.DataFrame(
+        cursor.fetchall(),
+        columns=[column[0] for column in cursor.description]
+    )
+
+    if not admin_students_df.empty:
+        st.dataframe(
+            admin_students_df,
+            use_container_width=True,
+            hide_index=True
+        )
+    else:
+        st.info("No students are registered yet.")
 
 
 if page == "Student Dashboard":
