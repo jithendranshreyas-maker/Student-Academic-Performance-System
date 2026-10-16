@@ -821,14 +821,7 @@ SELECT
 FROM students
 """
 
-student_info = cursor.fetchone()
 
-if student_info is None:
-    st.error("Student not found.")
-    st.stop()
-    
-student_year = int(student_info[0])
-student_semester = int(student_info[1])
 
 if role == "student":
     query += " WHERE student_id = %s"
@@ -843,6 +836,7 @@ else:
         cursor.fetchall(),
         columns=[column[0] for column in cursor.description]
     )
+
 
 
 if page == "Student Dashboard":
@@ -1772,18 +1766,26 @@ if page == "Overall Academic Prediction":
 
     st.title("SGA Prediction")
 
-    student_ids = students_df["student_id"].tolist()
+    student_ids = students_df["student_id"].astype(str).tolist()
+
 
     selected_student = st.selectbox(
         "Select Student",
         student_ids
     )
 
-    student_info = students_df[
-        students_df["student_id"] == selected_student
-    ].iloc[0]
+    student_row = students_df.loc[
+        students_df["student_id"].astype(str) == str(selected_student)
+    ]
 
-    student_branch = student_info["branch"]
+    if not student_row.empty:
+        student_info = student_row.iloc[0]
+        student_year = int(student_info["current_year"])
+        student_semester = int(student_info["current_semester"])
+        student_branch = student_info["branch"]
+    else:
+        st.error("Selected student was not found in the student list.")
+        st.stop()
 
     current_semester_query = """
     SELECT academic_year, semester
