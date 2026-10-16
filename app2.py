@@ -864,12 +864,21 @@ if page == "Student Dashboard":
 
     validated_results = cursor.fetchall()
     
-    student_ids = students_df["student_id"].tolist()
-    selected_student = st.selectbox("Select Student", student_ids,    key="dashboard_student_select"
-    )
+    if role == "student":
+        selected_student = student_id
+    else:
+        student_ids = students_df["student_id"].astype(str).tolist()
 
-    st.write("Selected student ID:", repr(selected_student))
+        if not student_ids:
+            st.warning("No students are available.")
+            st.stop()
 
+        selected_student = st.selectbox(
+            "Select Student",
+            student_ids,
+            key="dashboard_student_select"
+        )
+        
     validated_query = """
         SELECT
             p.prediction_id,
