@@ -1899,8 +1899,8 @@ if page == "Overall Academic Prediction":
     student_semester = st.selectbox(
         "Select Semester",
         options=list(range(1, 9)),
-        index=max(0, min(default_semester - 1, 7)),
-        key=f"overall_prediction_semester_{selected_student}"
+        index=max(0, min(current_semester - 1, 7)),
+        key=f"overall_prediction_semester_selector_{selected_student}"
     )
 
     academic_year_query = """
