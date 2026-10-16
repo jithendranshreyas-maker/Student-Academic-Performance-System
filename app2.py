@@ -1516,7 +1516,7 @@ if page == "Student Performance":
     student_semester = st.selectbox(
         "Select Semester",
         options=list(range(1, 9)),
-        index=max(0, min(current_semester - 1, 7)),
+        index=current_semester - 1,
         key=f"performance_semester_{selected_student}"
     )
 
