@@ -821,6 +821,15 @@ SELECT
 FROM students
 """
 
+student_info = cursor.fetchone()
+
+if student_info is None:
+    st.error("Student not found.")
+    st.stop()
+    
+student_year = int(student_info[0])
+student_semester = int(student_info[1])
+
 if role == "student":
     query += " WHERE student_id = %s"
     cursor.execute(query, (student_id,))
@@ -834,6 +843,7 @@ else:
         cursor.fetchall(),
         columns=[column[0] for column in cursor.description]
     )
+
 
 if page == "Student Dashboard":
     st.title("Student Dashboard")
@@ -1451,21 +1461,84 @@ if page == "Student Performance":
         student_ids
     )
 
+
     query = """
-    SELECT
-        a.subject_code,
-        c.subject_name,
-        a.marks_obtained,
-        a.grade,
-        a.grade_point,
-        a.attendance_percentage,
-        a.backlog
-    FROM academic_records a
-    JOIN curriculum c
-        ON a.subject_id = c.subject_id
-    WHERE a.student_id = %s
-    ORDER BY a.subject_code
+        SELECT
+            a.subject_code,
+            c.subject_name,
+            a.marks_obtained,
+            a.maximum_marks,
+            a.grade,
+            a.grade_point,
+            a.attendance_percentage,
+            a.backlog
+        FROM academic_records a
+        JOIN curriculum c
+            ON a.subject_id = c.subject_id
+        WHERE a.student_id = %s
+        AND a.academic_year = %s
+        AND a.semester = %s
+        ORDER BY a.subject_code
     """
+
+    cursor.execute(
+        query,
+        (
+            str(selected_student),
+            int(student_year),
+            int(student_semester)
+        )
+    )
+
+    academic_df = pd.DataFrame(
+        cursor.fetchall(),
+        columns=[
+            "subject_code",
+            "subject_name",
+            "marks_obtained",
+            "maximum_marks",
+            "grade",
+            "grade_point",
+            "attendance_percentage",
+            "backlog"
+        ]
+    )
+
+    if not academic_df.empty:
+        actual_marks = pd.to_numeric(
+            academic_df["marks_obtained"],
+            errors="coerce"
+        )
+
+        actual_maximum = pd.to_numeric(
+            academic_df["maximum_marks"],
+            errors="coerce"
+        )
+
+        valid_rows = (
+            actual_marks.notna()
+            & actual_maximum.notna()
+            & (actual_maximum > 0)
+        )
+
+        actual_percentage = (
+            (
+                actual_marks[valid_rows].sum()
+                / actual_maximum[valid_rows].sum()
+            ) * 100
+            if valid_rows.any()
+            else None
+        )
+
+        actual_total_backlogs = int(
+            pd.to_numeric(
+                academic_df["backlog"],
+                errors="coerce"
+            ).fillna(0).sum()
+        )
+    else:
+        actual_percentage = None
+        actual_total_backlogs = None
 
     performance_df = pd.read_sql(
         query,
@@ -2312,6 +2385,44 @@ if page == "Overall Academic Prediction":
         performance_category = "Below Par"
     else:
         performance_category = "Very Bad"
+
+
+    if not academic_df.empty:
+        actual_marks = pd.to_numeric(
+            academic_df["marks_obtained"],
+            errors="coerce"
+        )
+
+        actual_maximum = pd.to_numeric(
+            academic_df["maximum_marks"],
+            errors="coerce"
+        )
+
+        valid_rows = (
+            actual_marks.notna()
+            & actual_maximum.notna()
+            & (actual_maximum > 0)
+        )
+
+        actual_percentage = (
+            float(
+                actual_marks[valid_rows].sum()
+                / actual_maximum[valid_rows].sum()
+                * 100
+            )
+            if valid_rows.any()
+            else None
+        )
+
+        actual_total_backlogs = int(
+            pd.to_numeric(
+                academic_df["backlog"],
+                errors="coerce"
+            ).fillna(0).sum()
+        )
+    else:
+        actual_percentage = None
+        actual_total_backlogs = None
 
 
     if st.session_state.get("show_overall_dashboard", False):
