@@ -840,6 +840,55 @@ if page == "Admin Dashboard" and role == "admin":
 if page == "Student Dashboard":
     st.title("Student Dashboard")
 
+    cursor.execute(
+        """
+        SELECT
+            p.prediction_id,
+            p.student_id,
+            c.subject_code,
+            c.subject_name,
+            pf.actual_marks,
+            c.maximum_marks,
+            pf.actual_grade,
+            pf.feedback_date
+        FROM prediction_feedback pf
+        JOIN predictions p
+            ON pf.prediction_id = p.prediction_id
+        LEFT JOIN curriculum c
+            ON p.subject_id = c.subject_id
+        WHERE p.student_id = %s
+        ORDER BY pf.feedback_date DESC
+        """,
+        (student_id,)
+    )
+
+    validated_results = cursor.fetchall()
+
+    st.subheader("Validated Actual Marks")
+
+    if validated_results:
+        validated_df = pd.DataFrame(
+            validated_results,
+            columns=[
+                "Prediction ID",
+                "Student ID",
+                "Subject Code",
+                "Subject Name",
+                "Actual Marks",
+                "Maximum Marks",
+                "Actual Grade",
+                "Validation Date"
+            ]
+        )
+
+        st.dataframe(
+            validated_df.drop(columns=["Prediction ID", "Student ID"]),
+            use_container_width=True,
+            hide_index=True
+        )
+    else:
+        st.info("No validated actual marks available yet.")
+
     student_ids = students_df["student_id"].tolist()
     selected_student = st.selectbox("Select Student", student_ids)
 
