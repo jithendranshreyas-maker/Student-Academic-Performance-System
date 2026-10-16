@@ -863,34 +863,10 @@ if page == "Student Dashboard":
     )
 
     validated_results = cursor.fetchall()
-
-    st.subheader("Validated Actual Marks")
-
-    if validated_results:
-        validated_df = pd.DataFrame(
-            validated_results,
-            columns=[
-                "Prediction ID",
-                "Student ID",
-                "Subject Code",
-                "Subject Name",
-                "Actual Marks",
-                "Maximum Marks",
-                "Actual Grade",
-                "Validation Date"
-            ]
-        )
-
-        st.dataframe(
-            validated_df.drop(columns=["Prediction ID", "Student ID"]),
-            use_container_width=True,
-            hide_index=True
-        )
-    else:
-        st.info("No validated actual marks available yet.")
-
+    
     student_ids = students_df["student_id"].tolist()
-    selected_student = st.selectbox("Select Student", student_ids)
+    selected_student = st.selectbox("Select Student", student_ids,    key="dashboard_student_select"
+    )
 
 
     validated_query = """
