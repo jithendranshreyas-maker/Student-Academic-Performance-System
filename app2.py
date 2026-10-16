@@ -6743,38 +6743,9 @@ if page == "Prediction Validation":
                                     )
 
                                 else:
-                                    cursor.execute(
-                                        """
-                                        INSERT INTO prediction_feedback
-                                        (
-                                            prediction_id,
-                                            actual_marks,
-                                            actual_grade,
-                                            absolute_error,
-                                            feedback_notes
-                                        )
-                                        VALUES (%s, %s, %s, %s, %s)
-                                        """,
-                                        (
-                                            prediction_id,
-                                            float(actual_marks),
-                                            actual_grade,
-                                            absolute_error,
-                                            feedback_notes
-                                        )
+                                    st.warning(
+                                        "Validation saving is temporarily disabled while this issue is fixed."
                                     )
-
-                                    con.commit()
-
-                                    st.success(
-                                        "Validation saved successfully. "
-                                        f"Absolute error: {absolute_error:.2f} marks."
-                                    )
-                                    st.rerun()
-
-                            except Exception as e:
-                                con.rollback()
-                                st.error(f"Could not save validation: {e}")
 
                         st.warning(
                             "Please select the actual final grade."
