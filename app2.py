@@ -1062,193 +1062,225 @@ elif page == "Prediction Dashboard":
         )
 
 
-    # ---------------- STUDENT OVERVIEW ----------------
+
+    # ---------------- PREDICTION-BASED STUDENT OVERVIEW ----------------
     prediction_student_info = students_df[
         students_df["student_id"] == prediction_student
     ]
 
-    if show_pd_overview:
-        st.subheader("Overview")
+    overall_history_query = """
+        SELECT
+            prediction_id,
+            academic_year,
+            semester,
+            predicted_sga,
+            estimated_cg,
+            predicted_backlog_count,
+            backlog_risk,
+            performance_category,
+            overall_academic_risk
+        FROM overall_prediction_history
+        WHERE student_id = %s
+        ORDER BY prediction_id DESC
+    """
 
-        overview_query = """
+    prediction_history_df = pd.read_sql(
+        overall_history_query,
+        con,
+        params=(prediction_student,)
+    )
+
+    latest_overall = (
+        prediction_history_df.iloc[0]
+        if not prediction_history_df.empty
+        else None
+    )
+
+    prediction_subjects_df = pd.DataFrame()
+
+    if latest_overall is not None:
+        prediction_subjects_df = pd.read_sql(
+            """
             SELECT
-                a.subject_code,
-                c.subject_name,
-                a.marks_obtained,
-                a.grade,
-                a.grade_point,
-                a.attendance_percentage,
-                a.backlog
-            FROM academic_records a
-            JOIN curriculum c ON a.subject_id = c.subject_id
-            WHERE a.student_id = %s
-        """
-
-        prediction_academic_df = pd.read_sql(
-            overview_query,
+                subject_code,
+                subject_name,
+                credits,
+                predicted_marks,
+                estimated_grade,
+                attendance_percentage,
+                backlog_risk,
+                historical_average,
+                performance_vs_history
+            FROM overall_prediction_subjects
+            WHERE prediction_id = %s
+            ORDER BY subject_code
+            """,
             con,
-            params=(prediction_student,)
-        ).fillna(0)
+            params=(int(latest_overall["prediction_id"]),)
+        )
 
-        if not prediction_academic_df.empty:
+    if show_pd_overview:
+        st.subheader("Latest Prediction Overview")
+
+        if latest_overall is None:
+            st.info(
+                "No saved overall prediction exists for this student yet. "
+                "Generate an overall academic prediction to view this overview."
+            )
+        else:
             col1, col2, col3, col4, col5 = st.columns(5)
 
             col1.metric(
-                "Average Marks",
-                f"{prediction_academic_df['marks_obtained'].mean():.2f}"
+                "Predicted SGA",
+                f"{float(latest_overall['predicted_sga'] or 0):.2f}"
             )
             col2.metric(
-                "Average Grade Point",
-                f"{prediction_academic_df['grade_point'].mean():.2f}"
+                "Estimated CG",
+                f"{float(latest_overall['estimated_cg'] or 0):.2f}"
             )
-            col3.metric("Subjects", len(prediction_academic_df))
+            col3.metric(
+                "Predicted Backlogs",
+                int(latest_overall["predicted_backlog_count"] or 0)
+            )
             col4.metric(
-                "Backlogs",
-                int(prediction_academic_df["backlog"].sum())
+                "Backlog Risk",
+                str(latest_overall["backlog_risk"] or "N/A")
             )
             col5.metric(
-                "Average Attendance",
-                f"{prediction_academic_df['attendance_percentage'].mean():.2f}%"
+                "Predicted Subjects",
+                len(prediction_subjects_df)
             )
-        else:
-            st.info("No academic records are available for this student.")
 
-    # Load academic records even when Overview is unchecked
-    if not show_pd_overview:
-        academic_query = """
-            SELECT
-                a.subject_code,
-                c.subject_name,
-                a.marks_obtained,
-                a.grade,
-                a.grade_point,
-                a.attendance_percentage,
-                a.backlog
-            FROM academic_records a
-            JOIN curriculum c ON a.subject_id = c.subject_id
-            WHERE a.student_id = %s
-        """
-
-        prediction_academic_df = pd.read_sql(
-            academic_query,
-            con,
-            params=(prediction_student,)
-        ).fillna(0)
+            st.caption(
+                f"Latest prediction: Academic Year "
+                f"{latest_overall['academic_year']}, "
+                f"Semester {latest_overall['semester']}"
+            )
 
     if show_pd_student_info:
         st.subheader("Student Information")
-        st.dataframe(
-            prediction_student_info,
-            use_container_width=True,
-            hide_index=True
-        )
+        if not prediction_student_info.empty:
+            st.dataframe(
+                prediction_student_info,
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.info("Student information is unavailable.")
 
     if show_pd_academic:
-        st.subheader("Academic Performance")
-        st.dataframe(
-            prediction_academic_df,
-            use_container_width=True,
-            hide_index=True
-        )
-
-    semester_query = """
-        SELECT
-            academic_year,
-            semester,
-            sga,
-            semester_percentage,
-            total_backlogs,
-            semester_status
-        FROM semester_results
-        WHERE student_id = %s
-        ORDER BY academic_year, semester
-    """
-
-    prediction_semester_df = pd.read_sql(
-        semester_query,
-        con,
-        params=(prediction_student,)
-    ).fillna(0)
+        st.subheader("Predicted Academic Performance")
+        if not prediction_subjects_df.empty:
+            st.dataframe(
+                prediction_subjects_df,
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.info(
+                "No predicted subject results are available. "
+                "Generate an overall academic prediction first."
+            )
 
     if show_pd_semester:
-        st.subheader("Semester Performance")
-        st.dataframe(
-            prediction_semester_df,
-            use_container_width=True,
-            hide_index=True
-        )
+        st.subheader("Predicted Semester Performance")
+        if latest_overall is not None:
+            semester_display = pd.DataFrame([{
+                "academic_year": latest_overall["academic_year"],
+                "semester": latest_overall["semester"],
+                "predicted_sga": latest_overall["predicted_sga"],
+                "estimated_cg": latest_overall["estimated_cg"],
+                "predicted_backlog_count":
+                    latest_overall["predicted_backlog_count"],
+                "backlog_risk": latest_overall["backlog_risk"],
+                "performance_category":
+                    latest_overall["performance_category"],
+                "overall_academic_risk":
+                    latest_overall["overall_academic_risk"]
+            }])
+
+            st.dataframe(
+                semester_display,
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.info("Generate an overall prediction to view predicted semester performance.")
 
     if show_pd_sga:
-        st.subheader("SGA Trend")
+        st.subheader("Predicted SGA Trend")
 
-        if not prediction_semester_df.empty:
-            sga_chart_df = prediction_semester_df.copy()
-            sga_chart_df["Semester_Label"] = (
-                sga_chart_df["academic_year"].astype(str)
-                + " - Sem "
-                + sga_chart_df["semester"].astype(str)
-            )
+        if not prediction_history_df.empty:
+            sga_chart_df = prediction_history_df.dropna(
+                subset=["predicted_sga"]
+            ).copy()
 
-            fig = px.line(
-                sga_chart_df,
-                x="Semester_Label",
-                y="sga",
-                markers=True,
-                labels={
-                    "Semester_Label": "Semester",
-                    "sga": "SGA"
-                }
-            )
+            sga_chart_df = sga_chart_df.sort_values("prediction_id")
 
-            fig.update_yaxes(range=[0, 10], dtick=1)
-            st.plotly_chart(fig, use_container_width=True)
+            if not sga_chart_df.empty:
+                sga_chart_df["Semester_Label"] = (
+                    sga_chart_df["academic_year"].astype(str)
+                    + " - Sem "
+                    + sga_chart_df["semester"].astype(str)
+                )
 
-            latest_sga_row = prediction_semester_df.iloc[-1]
-            latest_sga = float(latest_sga_row["sga"])
-
-            previous_sga = (
-                float(prediction_semester_df.iloc[-2]["sga"])
-                if len(prediction_semester_df) > 1
-                else None
-            )
-
-            sga_change = (
-                latest_sga - previous_sga
-                if previous_sga is not None
-                else None
-            )
-
-            col1, col2 = st.columns(2)
-            col1.metric(
-                "Latest SGA",
-                f"{latest_sga:.2f}",
-                f"{sga_change:+.2f}" if sga_change is not None else None
-            )
-            col2.metric(
-                "Latest Semester",
-                f"Semester {int(latest_sga_row['semester'])}"
-            )
+                fig = px.line(
+                    sga_chart_df,
+                    x="Semester_Label",
+                    y="predicted_sga",
+                    markers=True,
+                    labels={
+                        "Semester_Label": "Semester",
+                        "predicted_sga": "Predicted SGA"
+                    }
+                )
+                fig.update_yaxes(range=[0, 10], dtick=1)
+                st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.info("No predicted SGA values are available.")
         else:
-            st.info("No semester results are available for this student.")
+            st.info("Generate an overall prediction to view the predicted SGA trend.")
 
     if show_pd_attendance:
-        st.subheader("Attendance")
+        st.subheader("Predicted Subject Attendance")
 
-        if not prediction_academic_df.empty:
-            attendance = prediction_academic_df[
-                "attendance_percentage"
-            ].mean()
+        if not prediction_subjects_df.empty:
+            attendance_df = prediction_subjects_df[
+                ["subject_code", "subject_name", "attendance_percentage"]
+            ].copy()
 
-            attendance_status = (
-                "Eligible" if attendance >= 75
-                else "Attendance Shortage"
+            st.dataframe(
+                attendance_df,
+                use_container_width=True,
+                hide_index=True
             )
 
-            col1, col2 = st.columns(2)
-            col1.metric("Average Attendance", f"{attendance:.2f}%")
-            col2.metric("Status", attendance_status)
+            valid_attendance = pd.to_numeric(
+                attendance_df["attendance_percentage"],
+                errors="coerce"
+            ).dropna()
+
+            if not valid_attendance.empty:
+                avg_attendance = valid_attendance.mean()
+                col1, col2 = st.columns(2)
+                col1.metric(
+                    "Average Attendance in Prediction",
+                    f"{avg_attendance:.2f}%"
+                )
+                col2.metric(
+                    "Attendance Threshold",
+                    "75%"
+                )
+
+            st.caption(
+                "Attendance values are those stored with the prediction; "
+                "they may be historical inputs rather than forecasted attendance."
+            )
         else:
-            st.info("No attendance records are available.")
+            st.info(
+                "No predicted subject results are available. "
+                "Generate an overall academic prediction first."
+            )
 
 
     action_col1, action_col2 = st.columns(2)
