@@ -878,7 +878,7 @@ if page == "Student Dashboard":
             student_ids,
             key="dashboard_student_select"
         )
-        
+
     validated_query = """
         SELECT
             p.prediction_id,
@@ -966,6 +966,10 @@ if page == "Student Dashboard":
         con,
         params=(str(selected_student),)
     )
+
+    st.write("Logged-in student ID:", repr(student_id))
+    st.write("Selected student ID:", repr(selected_student))
+    st.write("Academic records found:", len(academic_df))
 
     if show_overview:
         st.subheader("Overview")
