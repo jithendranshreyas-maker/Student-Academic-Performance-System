@@ -10,9 +10,14 @@ load_dotenv()
 
 
 
+
 def get_connection():
-    if "database" in st.secrets:
+    try:
         db = st.secrets["database"]
+    except (KeyError, FileNotFoundError):
+        db = None
+
+    if db is not None:
         return mysql.connector.connect(
             host=db["host"],
             port=int(db["port"]),
@@ -30,8 +35,6 @@ def get_connection():
         database=os.getenv("MYSQLDATABASE", os.getenv("DB_NAME", "Project_2")),
         connection_timeout=10
     )
-
-
 
 
 def verify_password(password, password_hash):
