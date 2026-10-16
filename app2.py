@@ -915,82 +915,61 @@ if page == "Student Dashboard":
         current_semester = int(semester_value)
 
 
+    query = """
+        SELECT
+            a.record_id,
+            a.subject_code,
+            COALESCE(c.subject_name, a.subject_code) AS subject_name,
+            a.academic_year,
+            a.semester,
+            a.marks_obtained,
+            a.maximum_marks,
+            a.grade,
+            a.grade_point,
+            a.attendance_percentage,
+            a.backlog
+        FROM academic_records a
+        LEFT JOIN curriculum c
+            ON a.subject_id = c.subject_id
+        WHERE a.student_id = %s
+        ORDER BY a.academic_year, a.semester, a.subject_code
+    """
+
+    academic_df = pd.read_sql(
+        query,
+        con,
+        params=(str(selected_student),)
+    )
+
     if show_overview:
         st.subheader("Overview")
 
-        query = """
-            SELECT
-                a.subject_code,
-                c.subject_name,
-                a.marks_obtained,
-                a.grade,
-                a.grade_point,
-                a.attendance_percentage,
-                a.backlog
-            FROM academic_records a
-            JOIN curriculum c ON a.subject_id = c.subject_id
-            WHERE a.student_id = %s
-        """
+        if not academic_df.empty:
+            avg_marks = academic_df["marks_obtained"].mean()
+            avg_gp = academic_df["grade_point"].mean()
+            total_subjects = academic_df["subject_code"].nunique()
+            total_backlogs = academic_df["backlog"].fillna(0).sum()
+            avg_attendance = academic_df["attendance_percentage"].mean()
 
-        academic_df = pd.read_sql(
-            query, con, params=(selected_student,)
-        )
-        academic_df = academic_df.fillna(0)
+            col1, col2, col3, col4, col5 = st.columns(5)
 
-        avg_marks = (
-            float(academic_df["marks_obtained"].mean())
-            if not academic_df.empty else 0.0
-        )
-        avg_gp = (
-            float(academic_df["grade_point"].mean())
-            if not academic_df.empty else 0.0
-        )
-        total_subjects = len(academic_df)
-        total_backlogs = (
-            int(academic_df["backlog"].sum())
-            if not academic_df.empty else 0
-        )
-        avg_attendance = (
-            float(academic_df["attendance_percentage"].mean())
-            if not academic_df.empty else 0.0
-        )
-
-        col1, col2, col3, col4, col5 = st.columns(5)
-        col1.metric("Average Marks", f"{avg_marks:.2f}")
-        col2.metric("Average Grade Point", f"{avg_gp:.2f}")
-        col3.metric("Subjects", total_subjects)
-        col4.metric("Backlogs", total_backlogs)
-        col5.metric("Average Attendance", f"{avg_attendance:.2f}%")
-
-    else:
-        query = """
-            SELECT
-                a.subject_code,
-                c.subject_name,
-                a.marks_obtained,
-                a.maximum_marks,
-                a.grade,
-                a.grade_point,
-                a.attendance_percentage,
-                a.backlog
-            FROM academic_records a
-            JOIN curriculum c
-                ON a.subject_id = c.subject_id
-            WHERE a.student_id = %s
-              AND a.academic_year = %s
-              AND a.semester = %s
-            ORDER BY a.subject_code
-        """
-
-        academic_df = pd.read_sql(
-            query,
-            con,
-            params=(
-                str(selected_student),
-                student_year,
-                student_semester
+            col1.metric(
+                "Average Marks",
+                f"{avg_marks:.2f}" if pd.notna(avg_marks) else "N/A"
             )
-        )
+            col2.metric(
+                "Average Grade Point",
+                f"{avg_gp:.2f}" if pd.notna(avg_gp) else "N/A"
+            )
+            col3.metric("Subjects", total_subjects)
+            col4.metric("Backlogs", int(total_backlogs))
+            col5.metric(
+                "Average Attendance",
+                f"{avg_attendance:.2f}%"
+                if pd.notna(avg_attendance) else "N/A"
+            )
+        else:
+            st.info("No academic records are available for this student.")
 
     student_info = student_row.iloc[0]
 
@@ -1000,7 +979,16 @@ if page == "Student Dashboard":
 
     if show_academic:
         st.subheader("Academic Performance")
-        st.dataframe(academic_df.fillna(0), width="stretch")
+
+        if not academic_df.empty:
+            display_df = academic_df.drop(columns=["record_id"])
+            st.dataframe(
+                display_df,
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.info("No academic records are available for this student.")
 
     query = """
     SELECT
@@ -1858,10 +1846,7 @@ if page == "Student Performance":
             else:
                 st.success("No backlogs recorded.")
 
-        if show_semester_performance:
-            st.subheader("Semester Performance")
-
-            query = """
+        query = """
             SELECT
                 academic_year,
                 semester,
@@ -1871,19 +1856,31 @@ if page == "Student Performance":
                 semester_status
             FROM semester_results
             WHERE student_id = %s
+            AND result_type = 'Actual'
             ORDER BY academic_year, semester
-            """
+        """
 
-            semester_performance_df = pd.read_sql(
-                query,
-                con,
-                params=(selected_student,)
-            )
+        semester_df = pd.read_sql(
+            query,
+            con,
+            params=(str(selected_student),)
+        )
 
-            st.dataframe(
-                semester_performance_df,
-                width="stretch"
-            )
+        if show_semester:
+            st.subheader("Semester Performance")
+
+            if not semester_df.empty:
+                st.dataframe(
+                    semester_df,
+                    use_container_width=True,
+                    hide_index=True
+                )
+            else:
+                st.info(
+                    f"No actual semester results found for student {selected_student}."
+                )
+
+
 if "show_overall_dashboard" not in st.session_state:
     st.session_state["show_overall_dashboard"] = False
 
@@ -1968,6 +1965,11 @@ if page == "Overall Academic Prediction":
             student_semester
         )
     )
+
+    st.write("DEBUG — Selected student:", selected_student)
+    st.write("DEBUG — Academic records loaded:", len(academic_df))
+    st.write("DEBUG — Academic columns:", academic_df.columns.tolist())
+    st.dataframe(academic_df.head())
 
     current_semester_query = """
         SELECT academic_year, semester
