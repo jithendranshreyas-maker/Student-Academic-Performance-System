@@ -1896,13 +1896,6 @@ if page == "Overall Academic Prediction":
         default_semester = int(approved_term.iloc[0]["semester"])
         default_academic_year = int(approved_term.iloc[0]["academic_year"])
 
-    student_semester = st.selectbox(
-        "Select Semester",
-        options=list(range(1, 9)),
-        index=max(0, min(current_semester - 1, 7)),
-        key=f"overall_prediction_semester_selector_{selected_student}"
-    )
-
     academic_year_query = """
         SELECT academic_year
         FROM academic_records
