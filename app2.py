@@ -1487,13 +1487,33 @@ if page == "Student Performance":
     )
     st.divider()
 
-    student_ids = students_df["student_id"].tolist()
+    
+    student_ids = students_df["student_id"].astype(str).tolist()
 
     selected_student = st.selectbox(
         "Select Student",
-        student_ids
+        student_ids,
+        key="performance_student"
     )
 
+    student_row = students_df.loc[
+        students_df["student_id"].astype(str) == str(selected_student)
+    ]
+
+    if student_row.empty:
+        st.error("Selected student was not found.")
+        st.stop()
+
+    student_info = student_row.iloc[0]
+
+    current_semester = int(student_info["current_semester"])
+
+    student_semester = st.selectbox(
+        "Select Semester",
+        options=list(range(1, 9)),
+        index=max(0, min(current_semester - 1, 7)),
+        key=f"performance_semester_{selected_student}"
+    )
 
     query = """
         SELECT
@@ -1509,19 +1529,46 @@ if page == "Student Performance":
         JOIN curriculum c
             ON a.subject_id = c.subject_id
         WHERE a.student_id = %s
-        AND a.academic_year = %s
-        AND a.semester = %s
+          AND a.academic_year = %s
+          AND a.semester = %s
         ORDER BY a.subject_code
     """
 
-    cursor.execute(
+    academic_year_df = pd.read_sql(
+        """
+        SELECT academic_year
+        FROM academic_records
+        WHERE student_id = %s
+          AND semester = %s
+        ORDER BY academic_year DESC
+        LIMIT 1
+        """,
+        con,
+        params=(str(selected_student), int(student_semester))
+    )
+
+    if academic_year_df.empty:
+        st.warning(
+            "No actual performance records were found for this semester."
+        )
+        st.stop()
+
+    curriculum_year = int(academic_year_df.iloc[0]["academic_year"])
+
+    academic_df = pd.read_sql(
         query,
-        (
+        con,
+        params=(
             str(selected_student),
-            int(student_year),
+            curriculum_year,
             int(student_semester)
         )
     )
+
+    if academic_df.empty:
+        st.info("No performance records are available for this semester.")
+        st.stop()
+
 
     academic_df = pd.DataFrame(
         cursor.fetchall(),
