@@ -890,18 +890,29 @@ if page == "Student Dashboard":
             a.subject_code,
             c.subject_name,
             a.marks_obtained,
+            a.maximum_marks,
             a.grade,
             a.grade_point,
             a.attendance_percentage,
             a.backlog
         FROM academic_records a
-        JOIN curriculum c ON a.subject_id = c.subject_id
+        JOIN curriculum c
+            ON a.subject_id = c.subject_id
         WHERE a.student_id = %s
-        """
+        AND a.academic_year = %s
+        AND a.semester = %s
+        ORDER BY a.subject_code
+    """
 
-        academic_df = pd.read_sql(
-            query, con, params=(selected_student,)
+    academic_df = pd.read_sql(
+        query,
+        con,
+        params=(
+            str(selected_student),
+            student_year,
+            student_semester
         )
+    )
 
     if show_student_info:
         st.subheader("Student Information")
@@ -1750,6 +1761,7 @@ if "saved_overall_prediction" not in st.session_state:
 if "overall_prediction_generated" not in st.session_state:
     st.session_state["overall_prediction_generated"] = False
 
+
 if page == "Overall Academic Prediction":
 
     grade_points = {
@@ -1768,7 +1780,6 @@ if page == "Overall Academic Prediction":
 
     student_ids = students_df["student_id"].astype(str).tolist()
 
-
     selected_student = st.selectbox(
         "Select Student",
         student_ids
@@ -1786,6 +1797,35 @@ if page == "Overall Academic Prediction":
     else:
         st.error("Selected student was not found in the student list.")
         st.stop()
+
+    query = """
+        SELECT
+            a.subject_code,
+            c.subject_name,
+            a.marks_obtained,
+            a.maximum_marks,
+            a.grade,
+            a.grade_point,
+            a.attendance_percentage,
+            a.backlog
+        FROM academic_records a
+        JOIN curriculum c
+            ON a.subject_id = c.subject_id
+        WHERE a.student_id = %s
+          AND a.academic_year = %s
+          AND a.semester = %s
+        ORDER BY a.subject_code
+    """
+
+    academic_df = pd.read_sql(
+        query,
+        con,
+        params=(
+            str(selected_student),
+            student_year,
+            student_semester
+        )
+    )
 
     current_semester_query = """
     SELECT academic_year, semester
