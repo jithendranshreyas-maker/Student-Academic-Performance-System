@@ -853,7 +853,13 @@ if page == "Student Dashboard":
         st.error("Selected student was not found.")
         st.stop()
 
-    student_year = int(student_row.iloc[0]["current_year"])
+    current_year_value = student_row.iloc[0]["current_year"]
+
+    student_year = (
+        int(current_year_value)
+        if pd.notna(current_year_value)
+        else None
+    )
     student_semester = int(student_row.iloc[0]["current_semester"])
 
 
