@@ -860,7 +860,12 @@ if page == "Student Dashboard":
         if pd.notna(current_year_value)
         else None
     )
-    student_semester = int(student_row.iloc[0]["current_semester"])
+    semester_value = student_row.iloc[0]["current_semester"]
+
+    if pd.isna(semester_value) or str(semester_value).strip() == "":
+        current_semester = 8
+    else:
+        current_semester = int(semester_value)
 
 
     if show_overview:
