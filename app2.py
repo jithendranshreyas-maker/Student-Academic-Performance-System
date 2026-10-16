@@ -302,7 +302,7 @@ if not st.session_state["authenticated"] or "user" not in st.session_state:
 
             branch = st.selectbox(
                 "Branch",
-                ["CS", "IT", "ECE", "EEE", "ME", "AI","Mech","Civil","Chem","Metallurgy","ECE","EEE","CDS"]
+                ["CS", "IT", "EEE", "AI","Mech","Civil","Chem","Metallurgy","ECE","CDS"]
             )
 
             section = st.text_input("Section (optional)")
@@ -601,7 +601,7 @@ with st.sidebar:
 
         show_overall_predictions = st.checkbox(
             "Overall Academic Predictions",
-            value=True,
+            value=False,
             key="pd_overall_predictions"
         )
         show_subject_predictions = st.checkbox(
@@ -3087,6 +3087,94 @@ if page == "Overall Academic Prediction":
                             safe_float(subject_row["performance_vs_history"])
                         )
                     )
+
+
+                # Update the matching academic record with predicted results
+                cursor.execute(
+                    """
+                    UPDATE academic_records
+                    SET
+                        marks_obtained = %s,
+                        grade = %s,
+                        attendance_percentage = %s,
+                        backlog = %s
+                    WHERE student_id = %s
+                        AND subject_code = %s
+                        AND academic_year = %s
+                        AND semester = %s
+                    """,
+                    (
+                        safe_float(subject_row["predicted_marks"]),
+                        (
+                            str(subject_row["estimated_grade"])
+                            if pd.notna(subject_row["estimated_grade"])
+                            else None
+                        ),
+                        safe_float(subject_row["attendance_percentage"]),
+                        (
+                            1
+                            if str(subject_row["backlog_risk"]).strip().lower()
+                            in ("high", "yes", "true")
+                            else 0
+                        ),
+                        str(selected_student),
+                        str(subject_row["subject_code"]),
+                        int(student_year),
+                        int(student_semester)
+                    )
+                )
+
+                predicted_marks_numeric = pd.to_numeric(
+                    predicted_subjects["predicted_marks"],
+                    errors="coerce"
+                )
+
+                valid_marks = predicted_marks_numeric.dropna()
+
+                semester_percentage = (
+                    float(valid_marks.mean())
+                    if not valid_marks.empty
+                    else None
+                )
+
+                semester_status = (
+                    "At Risk"
+                    if str(overall_academic_risk).strip().lower()
+                    in ("high", "yes")
+                    else "On Track"
+                )
+
+                cursor.execute(
+                    """
+                    INSERT INTO semester_results (
+                        student_id,
+                        academic_year,
+                        semester,
+                        sga,
+                        semester_percentage,
+                        total_backlogs,
+                        semester_status,
+                        result_type
+                    )
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                    """,
+                    (
+                        str(selected_student),
+                        int(student_year),
+                        int(student_semester),
+                        round(float(predicted_sga), 2),
+                        (
+                            round(float(semester_percentage), 2)
+                            if semester_percentage is not None
+                            else None
+                        ),
+                        int(predicted_backlog_count),
+                        semester_status,
+                        "Predicted"
+                    )
+                )
+
+
                 con.commit()
 
                 st.cache_data.clear()
@@ -3212,7 +3300,8 @@ if page == "Student Academic Details":
             index=max(0, min(7, default_semester - 1)),
             key=f"submission_semester_{student_id}"
         )
-
+        st.write("Debug student_branch:", repr(student_branch))
+        st.write("Debug semester:", repr(semester))
         # Query the curriculum for the selected branch and semester.
         subjects = pd.read_sql(
             """
@@ -3233,8 +3322,26 @@ if page == "Student Academic Details":
         prev_total_backlogs = 0
 
         if subjects.empty:
-            st.warning(
-                "No curriculum subjects were found for this branch and semester."
+            st.error(
+                f"No curriculum subjects found. "
+                f"Branch={student_branch!r}, "
+                f"Semester={semester!r}"
+            )
+
+            st.write("Database:", con.database)
+            st.write("Matching curriculum rows:")
+
+            st.dataframe(
+                pd.read_sql(
+                    """
+                    SELECT subject_code, subject_name, branch, semester
+                    FROM curriculum
+                    WHERE UPPER(TRIM(branch)) = UPPER(TRIM(%s))
+                    AND semester = %s
+                    """,
+                    con,
+                    params=(student_branch, int(semester))
+                )
             )
         else:
             subject_options = subjects["subject_code"].astype(str).tolist()
