@@ -9,6 +9,7 @@ load_dotenv()
 
 
 
+
 def get_connection():
     if "database" in st.secrets:
         db = st.secrets["database"]
@@ -27,8 +28,6 @@ def get_connection():
         user=os.getenv("MYSQLUSER", os.getenv("DB_USER")),
         password=os.getenv("MYSQLPASSWORD", os.getenv("DB_PASSWORD")),
         database=os.getenv("MYSQLDATABASE", os.getenv("DB_NAME", "Project_2")),
-        connection_timeout=10
-    )
         connection_timeout=10
     )
 
