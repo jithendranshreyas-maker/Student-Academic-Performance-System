@@ -1506,7 +1506,12 @@ if page == "Student Performance":
 
     student_info = student_row.iloc[0]
 
-    current_semester = int(student_info["current_semester"])
+    semester_value = student_row.iloc[0]["current_semester"]
+
+    if pd.isna(semester_value) or str(semester_value).strip() == "":
+        current_semester = 8
+    else:
+        current_semester = int(semester_value)
 
     student_semester = st.selectbox(
         "Select Semester",
