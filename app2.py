@@ -967,6 +967,41 @@ if page == "Student Dashboard":
         params=(str(selected_student),)
     )
 
+
+    st.subheader("Saved Subject Predictions")
+
+    saved_predictions_query = """
+        SELECT
+            p.prediction_id,
+            c.subject_code,
+            c.subject_name,
+            p.prediction_type,
+            p.predicted_marks,
+            p.predicted_grade,
+            p.created_at
+        FROM predictions p
+        LEFT JOIN curriculum c
+            ON p.subject_id = c.subject_id
+        WHERE p.student_id = %s
+        ORDER BY p.created_at DESC, p.prediction_id DESC
+    """
+
+    saved_predictions_df = pd.read_sql(
+        saved_predictions_query,
+        con,
+        params=(str(selected_student),)
+    )
+
+    if saved_predictions_df.empty:
+        st.info("No saved predictions are available for this student yet.")
+    else:
+        st.dataframe(
+            saved_predictions_df.drop(columns=["prediction_id"]),
+            use_container_width=True,
+            hide_index=True
+        )
+
+
     st.write("Logged-in student ID:", repr(student_id))
     st.write("Selected student ID:", repr(selected_student))
     st.write("Academic records found:", len(academic_df))
