@@ -1860,11 +1860,11 @@ if page == "Overall Academic Prediction":
     )
 
     current_semester_query = """
-    SELECT academic_year, semester
-    FROM academic_records
-    WHERE student_id = %s
-    ORDER BY academic_year DESC, semester DESC
-    LIMIT 1
+        SELECT academic_year, semester
+        FROM academic_records
+        WHERE student_id = %s
+        ORDER BY academic_year DESC, semester DESC
+        LIMIT 1
     """
 
     current_semester_df = pd.read_sql(
@@ -1873,7 +1873,10 @@ if page == "Overall Academic Prediction":
         params=(selected_student,)
     )
 
-    if current_semester_df.empty:
+    if not current_semester_df.empty:
+        default_semester = int(current_semester_df.iloc[0]["semester"])
+        default_academic_year = int(current_semester_df.iloc[0]["academic_year"])
+    else:
         approved_term = pd.read_sql(
             """
             SELECT academic_year, semester
@@ -1885,15 +1888,20 @@ if page == "Overall Academic Prediction":
             con,
             params=(selected_student,)
         )
-        if not approved_term.empty:
-            student_semester = int(approved_term.iloc[0]["semester"])
-            student_year = int(approved_term.iloc[0]["academic_year"])
-        else:
+
+        if approved_term.empty:
             st.warning("No official records or approved student submissions were found.")
             st.stop()
-    else:
-        student_semester = int(current_semester_df.iloc[0]["semester"])
-        student_year = int(current_semester_df.iloc[0]["academic_year"])
+
+        default_semester = int(approved_term.iloc[0]["semester"])
+        default_academic_year = int(approved_term.iloc[0]["academic_year"])
+
+    student_semester = st.selectbox(
+        "Select Semester",
+        options=list(range(1, 9)),
+        index=max(0, min(default_semester - 1, 7)),
+        key=f"overall_prediction_semester_{selected_student}"
+    )
 
     academic_year_query = """
         SELECT academic_year
