@@ -845,25 +845,33 @@ if page == "Student Dashboard":
     student_ids = students_df["student_id"].tolist()
     selected_student = st.selectbox("Select Student", student_ids)
 
-    student_info = students_df[
-        students_df["student_id"] == selected_student
+    student_row = students_df.loc[
+        students_df["student_id"].astype(str) == str(selected_student)
     ]
+
+    if student_row.empty:
+        st.error("Selected student was not found.")
+        st.stop()
+
+    student_year = int(student_row.iloc[0]["current_year"])
+    student_semester = int(student_row.iloc[0]["current_semester"])
+
 
     if show_overview:
         st.subheader("Overview")
 
         query = """
-        SELECT
-            a.subject_code,
-            c.subject_name,
-            a.marks_obtained,
-            a.grade,
-            a.grade_point,
-            a.attendance_percentage,
-            a.backlog
-        FROM academic_records a
-        JOIN curriculum c ON a.subject_id = c.subject_id
-        WHERE a.student_id = %s
+            SELECT
+                a.subject_code,
+                c.subject_name,
+                a.marks_obtained,
+                a.grade,
+                a.grade_point,
+                a.attendance_percentage,
+                a.backlog
+            FROM academic_records a
+            JOIN curriculum c ON a.subject_id = c.subject_id
+            WHERE a.student_id = %s
         """
 
         academic_df = pd.read_sql(
@@ -871,11 +879,23 @@ if page == "Student Dashboard":
         )
         academic_df = academic_df.fillna(0)
 
-        avg_marks = float(academic_df["marks_obtained"].mean()) if not academic_df.empty else 0.0
-        avg_gp = float(academic_df["grade_point"].mean()) if not academic_df.empty else 0.0
+        avg_marks = (
+            float(academic_df["marks_obtained"].mean())
+            if not academic_df.empty else 0.0
+        )
+        avg_gp = (
+            float(academic_df["grade_point"].mean())
+            if not academic_df.empty else 0.0
+        )
         total_subjects = len(academic_df)
-        total_backlogs = int(academic_df["backlog"].sum()) if not academic_df.empty else 0
-        avg_attendance = float(academic_df["attendance_percentage"].mean()) if not academic_df.empty else 0.0
+        total_backlogs = (
+            int(academic_df["backlog"].sum())
+            if not academic_df.empty else 0
+        )
+        avg_attendance = (
+            float(academic_df["attendance_percentage"].mean())
+            if not academic_df.empty else 0.0
+        )
 
         col1, col2, col3, col4, col5 = st.columns(5)
         col1.metric("Average Marks", f"{avg_marks:.2f}")
@@ -886,33 +906,35 @@ if page == "Student Dashboard":
 
     else:
         query = """
-        SELECT
-            a.subject_code,
-            c.subject_name,
-            a.marks_obtained,
-            a.maximum_marks,
-            a.grade,
-            a.grade_point,
-            a.attendance_percentage,
-            a.backlog
-        FROM academic_records a
-        JOIN curriculum c
-            ON a.subject_id = c.subject_id
-        WHERE a.student_id = %s
-        AND a.academic_year = %s
-        AND a.semester = %s
-        ORDER BY a.subject_code
-    """
+            SELECT
+                a.subject_code,
+                c.subject_name,
+                a.marks_obtained,
+                a.maximum_marks,
+                a.grade,
+                a.grade_point,
+                a.attendance_percentage,
+                a.backlog
+            FROM academic_records a
+            JOIN curriculum c
+                ON a.subject_id = c.subject_id
+            WHERE a.student_id = %s
+              AND a.academic_year = %s
+              AND a.semester = %s
+            ORDER BY a.subject_code
+        """
 
-    academic_df = pd.read_sql(
-        query,
-        con,
-        params=(
-            str(selected_student),
-            student_year,
-            student_semester
+        academic_df = pd.read_sql(
+            query,
+            con,
+            params=(
+                str(selected_student),
+                student_year,
+                student_semester
+            )
         )
-    )
+
+    student_info = student_row.iloc[0]
 
     if show_student_info:
         st.subheader("Student Information")
