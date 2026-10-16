@@ -4017,8 +4017,8 @@ if page == "Individual Subject Prediction":
 
     st.write("Student ID:", selected_student)
     st.write("Branch:", student_branch)
-
-    # Determine the student's current semester.
+    
+    # Determine the latest available academic term.
     current_semester_df = pd.read_sql(
         """
         SELECT academic_year, semester
@@ -4032,7 +4032,7 @@ if page == "Individual Subject Prediction":
     )
 
     if not current_semester_df.empty:
-        student_semester = int(
+        latest_semester = int(
             current_semester_df.iloc[0]["semester"]
         )
         curriculum_year = int(
@@ -4043,38 +4043,58 @@ if page == "Individual Subject Prediction":
             """
             SELECT academic_year, semester
             FROM student_academic_submissions
-            WHERE student_id = %s AND status = 'Approved'
+            WHERE student_id = %s
+              AND status = 'Approved'
             ORDER BY academic_year DESC, semester DESC
             LIMIT 1
             """,
             con,
             params=(selected_student,)
         )
+
         profile_semester = student_info.get("current_semester")
 
         if not approved_term.empty:
-            student_semester = int(approved_term.iloc[0]["semester"])
-            curriculum_year = int(approved_term.iloc[0]["academic_year"])
+            latest_semester = int(
+                approved_term.iloc[0]["semester"]
+            )
+            curriculum_year = int(
+                approved_term.iloc[0]["academic_year"]
+            )
         else:
-            if pd.notna(profile_semester):
-                student_semester = int(profile_semester)
-            else:
-                student_semester = st.selectbox(
-                    "Select Semester",
-                    list(range(1, 9)),
-                    key=f"prediction_semester_{selected_student}"
-                )
+            latest_semester = (
+                int(profile_semester)
+                if pd.notna(profile_semester)
+                else 1
+            )
+
             profile_year = student_info.get("academic_year")
-            curriculum_year = int(profile_year) if pd.notna(profile_year) else None
+            curriculum_year = (
+                int(profile_year)
+                if pd.notna(profile_year)
+                else None
+            )
 
     if current_semester_df.empty and curriculum_year is None:
-        st.warning("Academic year is unavailable. Submit details with an academic year first.")
+        st.warning(
+            "Academic year is unavailable. "
+            "Submit details with an academic year first."
+        )
         st.stop()
 
-    # Study year is derived from the semester number.
+    # Allow manual semester selection.
+    student_semester = st.selectbox(
+        "Select Semester",
+        options=list(range(1, 9)),
+        index=max(0, min(latest_semester - 1, 7)),
+        key=f"prediction_semester_{selected_student}"
+    )
+
+    # Study year is derived from the selected semester.
     student_year = ((student_semester - 1) // 2) + 1
 
     is_first_semester = student_semester == 1
+
 
     st.write(
         f"Branch: {student_branch} | "
