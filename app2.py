@@ -6629,15 +6629,21 @@ if page == "Prediction Validation":
             st.divider()
             st.subheader("Validate an Individual Prediction")
 
-            selected_prediction = st.selectbox(
-                "Select Prediction ID",
-                filtered_predictions_df["prediction_id"].tolist(),
-                key="validation_prediction_select"
-            )
+            pending_predictions = filtered_predictions_df[
+                filtered_predictions_df["Validation Status"] == "Pending Validation"
+            ]
 
-            selected_row = filtered_predictions_df[
-                filtered_predictions_df["prediction_id"]
-                == selected_prediction
+            if pending_predictions.empty:
+                st.info("No pending predictions available for validation.")
+            else:
+                selected_prediction = st.selectbox(
+                    "Select Prediction ID",
+                    pending_predictions["prediction_id"].tolist(),
+                    key="validation_prediction_select"
+                )
+
+            selected_row = pending_predictions[
+                pending_predictions["prediction_id"] == selected_prediction
             ].iloc[0]
 
             prediction_id = int(selected_row["prediction_id"])
@@ -6694,22 +6700,28 @@ if page == "Prediction Validation":
                         placeholder="Optional observations about the prediction"
                     )
 
-                    save_validation = st.form_submit_button(
-                        "Save Validation"
+                    confirm_validation = st.checkbox(
+                        "I confirm these are the actual marks and grade.",
+                        key=f"confirm_validation_{prediction_id}"
                     )
 
-
+                    save_validation = st.form_submit_button("Save Validation")
+    
                     if save_validation:
-                        if actual_grade is None:
-                            st.warning("Please select the actual final grade.")
+                        if not confirm_validation:
+                            st.warning(
+                                "Please confirm the actual marks and grade."
+                            )
 
-                        elif not 0 <= actual_marks <= 100:
-                            st.warning("Actual marks must be between 0 and 100.")
+                        elif actual_grade is None:
+                            st.warning(
+                                "Please select the actual final grade."
+                            )
 
                         else:
                             absolute_error = abs(
                                 float(selected_row["predicted_marks"])
-                                - actual_marks
+                                - float(actual_marks)
                             )
 
                             try:
@@ -6721,12 +6733,15 @@ if page == "Prediction Validation":
                                     """,
                                     (prediction_id,)
                                 )
+
                                 existing_count = cursor.fetchone()[0]
 
                                 if existing_count > 0:
                                     st.warning(
-                                        "This prediction has already been validated."
+                                        "This prediction already has a feedback "
+                                        "record. Please review it before changing it."
                                     )
+
                                 else:
                                     cursor.execute(
                                         """
@@ -6742,7 +6757,7 @@ if page == "Prediction Validation":
                                         """,
                                         (
                                             prediction_id,
-                                            actual_marks,
+                                            float(actual_marks),
                                             actual_grade,
                                             absolute_error,
                                             feedback_notes
@@ -6774,38 +6789,53 @@ if page == "Prediction Validation":
                         try:
                             cursor.execute(
                                 """
-                                INSERT INTO prediction_feedback
-                                (
-                                    prediction_id,
-                                    actual_marks,
-                                    actual_grade,
-                                    absolute_error,
-                                    feedback_notes
-                                )
-                                VALUES (%s, %s, %s, %s, %s)
+                                SELECT COUNT(*)
+                                FROM prediction_feedback
+                                WHERE prediction_id = %s
                                 """,
-                                (
-                                    prediction_id,
-                                    actual_marks,
-                                    actual_grade,
-                                    absolute_error,
-                                    feedback_notes
+                                (prediction_id,)
+                            )
+
+                            existing_count = cursor.fetchone()[0]
+
+                            if existing_count > 0:
+                                st.warning(
+                                    "This prediction already has a feedback record."
                                 )
-                            )
+                            else:
+                                cursor.execute(
+                                    """
+                                    INSERT INTO prediction_feedback
+                                    (
+                                        prediction_id,
+                                        actual_marks,
+                                        actual_grade,
+                                        absolute_error,
+                                        feedback_notes
+                                    )
+                                    VALUES (%s, %s, %s, %s, %s)
+                                    """,
+                                    (
+                                        prediction_id,
+                                        float(actual_marks),
+                                        actual_grade,
+                                        absolute_error,
+                                        feedback_notes
+                                    )
+                                )
 
-                            con.commit()
+                                con.commit()
 
-                            st.success(
-                                "Validation saved successfully. "
-                                f"Absolute error: {absolute_error:.2f} marks"
-                            )
+                                st.success(
+                                    f"Validation saved successfully. "
+                                    f"Absolute error: {absolute_error:.2f} marks."
+                                )
 
-                            st.rerun()
+                                st.rerun()
 
                         except Exception as e:
                             con.rollback()
                             st.error(f"Could not save validation: {e}")
-
     # Validation results
     if show_validation_results:
         st.divider()
