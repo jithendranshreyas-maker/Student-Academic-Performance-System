@@ -1814,8 +1814,18 @@ if page == "Overall Academic Prediction":
     if not student_row.empty:
         student_info = student_row.iloc[0]
         student_year = int(student_info["current_year"])
-        student_semester = int(student_info["current_semester"])
         student_branch = student_info["branch"]
+
+        current_semester = int(student_info["current_semester"])
+        student_semester = st.selectbox(
+            "Select Semester",
+            options=list(range(1, 9)),
+            index=max(0, min(current_semester - 1, 7)),
+            key=f"overall_prediction_semester_{selected_student}"
+        )
+
+        student_year = ((student_semester - 1) // 2) + 1
+
     else:
         st.error("Selected student was not found in the student list.")
         st.stop()
